@@ -1,10 +1,9 @@
 ---
 interface Props {
   categoryTitle: string;
-  catalogPages: string;
 }
 
-const { categoryTitle, catalogPages } = Astro.props;
+const { categoryTitle } = Astro.props;
 
 // Format WhatsApp string exactly as requested by user feedback
 const baseMessage = `Hi MF Chemicals, I am interested in your ${categoryTitle} range. Please provide more details on pricing and availability.`;
@@ -23,10 +22,6 @@ const mailtoUrl = `mailto:info@mfchemicals.net?subject=${encodeURIComponent(`Inq
 
   <!-- Catalog Meta Details -->
   <div class="space-y-3">
-    <div class="flex justify-between items-center text-xs">
-      <span class="text-brand-slate-500">Legacy Catalog Pages:</span>
-      <span class="font-semibold text-brand-slate-800 bg-brand-slate-100 px-2 py-0.5 rounded">p. {catalogPages}</span>
-    </div>
     <div class="flex justify-between items-center text-xs">
       <span class="text-brand-slate-500">Compliance Standard:</span>
       <span class="font-semibold text-brand-slate-800">ISO / SDS Available</span>

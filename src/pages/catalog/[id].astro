@@ -45,7 +45,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 <Layout 
   title={title} 
-  description={`MF Chemicals Penang (Est. 1985) - View our high-quality range of ${title} products including subcategories, representative brands: ${brands.join(', ')}. Catalog pages ${catalogPages}.`}
+  description={`MF Chemicals Penang (Est. 1985) - View our high-quality range of ${title} products including subcategories, representative brands: ${brands.join(', ')}.`}
 >
   <div class="bg-brand-slate-50 min-h-screen py-6 md:py-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -90,12 +90,6 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
             </div>
             
             <div class="flex flex-wrap items-center gap-4">
-              <div class="bg-brand-slate-50 border border-brand-slate-100 rounded-lg px-4 py-2 flex items-center gap-3">
-                <div>
-                  <div class="text-[8px] uppercase font-bold tracking-widest text-brand-slate-400">Printed Catalog</div>
-                  <div class="text-xs font-bold text-brand-slate-800">Pages {catalogPages}</div>
-                </div>
-              </div>
               <span class="inline-flex text-[9px] font-bold text-brand-amber-800 bg-brand-amber-50 border border-brand-amber-200/60 px-2.5 py-1 rounded font-semibold">
                 Original B2B Stocks Verified
               </span>
@@ -179,7 +173,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
         <!-- Sidebar Column (30%) -->
         <div class="lg:col-span-1">
-          <InquirePanel categoryTitle={title} catalogPages={catalogPages} />
+          <InquirePanel categoryTitle={title} />
         </div>
 
       </div>
