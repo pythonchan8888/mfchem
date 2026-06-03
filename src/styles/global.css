@@ -11,8 +11,14 @@ html {
 }
 
 body {
-  @apply bg-brand-slate-50 text-brand-slate-900 min-h-screen flex flex-col selection:bg-brand-slate-900 selection:text-white;
+  @apply bg-brand-slate-50 text-brand-slate-900 min-h-screen flex flex-col;
 }
+
+::selection {
+  background-color: #2e5b8c;
+  color: #ffffff;
+}
+
 
 /* Custom Scrollbar for premium look */
 ::-webkit-scrollbar {

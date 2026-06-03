@@ -46,7 +46,7 @@ const IconComponent = iconMap[icon as keyof typeof iconMap];
   title={title} 
   description={`MF Chemicals Penang (Est. 1985) - View our high-quality range of ${title} products including subcategories, representative brands: ${brands.join(', ')}. Catalog pages ${catalogPages}.`}
 >
-  <div class="bg-brand-slate-50 min-h-screen py-10">
+  <div class="bg-brand-slate-50 min-h-screen py-6 md:py-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Breadcrumbs -->
@@ -71,29 +71,44 @@ const IconComponent = iconMap[icon as keyof typeof iconMap];
       </nav>
 
       <!-- Category Page Header Banner -->
-      <div class="relative bg-white border border-brand-slate-200/80 rounded-xl p-6 md:p-10 mb-10 overflow-hidden shadow-premium">
-        <!-- Decoration grid line -->
-        <div class="absolute inset-y-0 right-0 w-1/3 bg-[linear-gradient(to_right,#f8fafc_1px,transparent_1px),linear-gradient(to_bottom,#f8fafc_1px,transparent_1px)] bg-[size:2rem_2rem] opacity-60 hidden md:block"></div>
-
-        <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-          <div class="flex items-start md:items-center gap-5">
-            <div class="p-4 bg-brand-slate-900 text-white rounded-xl shadow-sm shrink-0">
-              {IconComponent && <IconComponent class="w-8 h-8" />}
+      <div class="relative bg-white border border-brand-slate-200/80 rounded-xl overflow-hidden mb-10 shadow-premium">
+        <div class="flex flex-col md:flex-row items-center">
+          <!-- Text and Info Content (Left Side) -->
+          <div class="p-6 md:p-10 flex-grow flex flex-col justify-between gap-6 md:w-[60%]">
+            <div class="space-y-4">
+              <div class="flex items-center gap-4">
+                <div class="p-3 bg-brand-steel-600 text-white rounded-lg shadow-sm shrink-0">
+                  {IconComponent && <IconComponent class="w-6 h-6" />}
+                </div>
+                <div>
+                  <span class="text-[9px] uppercase font-bold tracking-widest text-brand-slate-400">Category Showcase</span>
+                  <h1 class="text-xl md:text-2xl font-bold text-brand-slate-900 tracking-tight">{title}</h1>
+                </div>
+              </div>
+              <p class="text-xs md:text-sm text-brand-slate-500 leading-relaxed max-w-xl">{description}</p>
             </div>
-            <div class="space-y-1.5">
-              <span class="text-[10px] uppercase font-bold tracking-widest text-brand-slate-400">Category Showcase</span>
-              <h1 class="text-2xl md:text-3xl font-bold text-brand-slate-900 tracking-tight">{title}</h1>
-              <p class="text-xs md:text-sm text-brand-slate-500 max-w-xl leading-relaxed">{description}</p>
+            
+            <div class="flex flex-wrap items-center gap-4">
+              <div class="bg-brand-slate-50 border border-brand-slate-100 rounded-lg px-4 py-2 flex items-center gap-3">
+                <div>
+                  <div class="text-[8px] uppercase font-bold tracking-widest text-brand-slate-400">Printed Catalog</div>
+                  <div class="text-xs font-bold text-brand-slate-800">Pages {catalogPages}</div>
+                </div>
+              </div>
+              <span class="inline-flex text-[9px] font-bold text-brand-amber-800 bg-brand-amber-50 border border-brand-amber-200/60 px-2.5 py-1 rounded font-semibold">
+                Original B2B Stocks Verified
+              </span>
             </div>
           </div>
-          <div class="bg-brand-slate-50 border border-brand-slate-100 rounded-lg p-4 shrink-0 flex md:flex-col items-center md:items-start justify-between gap-4 md:gap-1.5 w-full md:w-auto">
-            <div>
-              <div class="text-[9px] uppercase font-bold tracking-widest text-brand-slate-400">Printed Catalog</div>
-              <div class="text-xs font-bold text-brand-slate-800">Pages {catalogPages}</div>
-            </div>
-            <span class="inline-flex text-[9px] font-bold text-emerald-800 bg-emerald-50 border border-emerald-200/60 px-2 py-0.5 rounded">
-              Original B2B Stocks
-            </span>
+
+          <!-- Banner Image Showcase (Right Side) -->
+          <div class="p-6 md:p-8 md:w-[40%] flex justify-center items-center w-full bg-brand-slate-50/50 md:bg-transparent border-t md:border-t-0 md:border-l border-brand-slate-100/80">
+            <img 
+              src={`/images/banners/${category.id}.png`} 
+              alt={`${title} banner showcase`}
+              class="w-full max-w-[280px] md:max-w-full h-auto aspect-square object-contain rounded-lg border border-brand-slate-200/40 shadow-sm"
+              loading="eager"
+            />
           </div>
         </div>
       </div>
@@ -154,7 +169,7 @@ const IconComponent = iconMap[icon as keyof typeof iconMap];
                 Need original Pyrex batch certificates, brand conformity files, or technical datasheets? Inform our Penang sales team.
               </p>
             </div>
-            <button id="open-rfq-bottom" class="inline-flex items-center justify-center px-4 py-2.5 text-xs font-bold text-brand-slate-950 bg-white hover:bg-brand-slate-100 rounded-md transition-colors shrink-0 shadow-sm">
+            <button id="open-rfq-bottom" class="inline-flex items-center justify-center px-4 py-2.5 text-xs font-bold text-white bg-brand-steel-500 hover:bg-brand-steel-600 rounded-md transition-colors shrink-0 shadow-sm">
               Request Certificate
             </button>
           </div>

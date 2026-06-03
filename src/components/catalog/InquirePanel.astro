@@ -8,10 +8,10 @@ const { categoryTitle, catalogPages } = Astro.props;
 
 // Format WhatsApp string exactly as requested by user feedback
 const baseMessage = `Hi MF Chemicals, I am interested in your ${categoryTitle} range. Please provide more details on pricing and availability.`;
-const whatsappUrl = `https://wa.me/6045883448?text=${encodeURIComponent(baseMessage)}`;
+const whatsappUrl = `https://wa.me/60164270012?text=${encodeURIComponent(baseMessage)}`;
 
 // Email mailto URL
-const mailtoUrl = `mailto:sales@mfchempg.com?subject=${encodeURIComponent(`Inquiry - ${categoryTitle} Range`)}&body=${encodeURIComponent(baseMessage)}`;
+const mailtoUrl = `mailto:info@mfchemicals.net?subject=${encodeURIComponent(`Inquiry - ${categoryTitle} Range`)}&body=${encodeURIComponent(baseMessage)}`;
 ---
 
 <div class="bg-white border border-brand-slate-200/80 rounded-xl p-6 lg:p-8 shadow-premium lg:sticky lg:top-28 flex flex-col space-y-6">
@@ -42,7 +42,7 @@ const mailtoUrl = `mailto:sales@mfchempg.com?subject=${encodeURIComponent(`Inqui
     <!-- RFQ Form Trigger -->
     <button 
       id="open-rfq-sidebar" 
-      class="w-full inline-flex items-center justify-center px-5 py-3 text-xs font-bold text-white bg-brand-slate-900 rounded-md hover:bg-brand-slate-800 active:bg-brand-slate-950 transition-colors shadow-sm"
+      class="w-full inline-flex items-center justify-center px-5 py-3 text-xs font-bold text-white bg-brand-steel-600 rounded-md hover:bg-brand-steel-700 active:bg-brand-steel-800 transition-colors shadow-sm"
     >
       Request B2B Quote
     </button>
