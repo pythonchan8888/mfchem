@@ -1,0 +1,14 @@
+{
+  "title": "Laboratory Equipment",
+  "description": "Analytical instrumentation and heavy hardware including meters, scales, sterilization units, and safety enclosures.",
+  "subcategories": [
+    "pH & Conductivity Meters",
+    "Analytical Balances & Scales",
+    "Autoclaves & Sterilizers",
+    "Water Distillers & Purifiers",
+    "Fume Cupboards & Laminar Flows"
+  ],
+  "brands": ["Ohaus", "Mettler Toledo", "Memmert", "Yamato", "WTW"],
+  "catalogPages": "171-210",
+  "icon": "equipment"
+}

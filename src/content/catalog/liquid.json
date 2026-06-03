@@ -1,0 +1,13 @@
+{
+  "title": "Liquid Handling",
+  "description": "Ergonomic volumetric liquid handling instruments, pipettors, and dispensers designed for precise fluid delivery.",
+  "subcategories": [
+    "Pipetting Aids",
+    "Bottle Top Dispensers",
+    "Digital Burettes",
+    "Micro & Macro Pipettors"
+  ],
+  "brands": ["Socorex", "Brand", "Gilson", "Eppendorf", "Sartorius"],
+  "catalogPages": "151-170",
+  "icon": "liquid"
+}

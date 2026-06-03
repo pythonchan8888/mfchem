@@ -1,0 +1,127 @@
+---
+interface Props {
+  categoryTitle: string;
+  catalogPages: string;
+}
+
+const { categoryTitle, catalogPages } = Astro.props;
+
+// Format WhatsApp string exactly as requested by user feedback
+const baseMessage = `Hi MF Chemicals, I am interested in your ${categoryTitle} range. Please provide more details on pricing and availability.`;
+const whatsappUrl = `https://wa.me/6045883448?text=${encodeURIComponent(baseMessage)}`;
+
+// Email mailto URL
+const mailtoUrl = `mailto:sales@mfchempg.com?subject=${encodeURIComponent(`Inquiry - ${categoryTitle} Range`)}&body=${encodeURIComponent(baseMessage)}`;
+---
+
+<div class="bg-white border border-brand-slate-200/80 rounded-xl p-6 lg:p-8 shadow-premium lg:sticky lg:top-28 flex flex-col space-y-6">
+  <!-- Section Title -->
+  <div class="border-b border-brand-slate-100 pb-4">
+    <span class="text-[10px] uppercase font-bold tracking-widest text-brand-slate-400">B2B Procurement</span>
+    <h3 class="text-base font-bold text-brand-slate-900 mt-1">Inquire Now</h3>
+  </div>
+
+  <!-- Catalog Meta Details -->
+  <div class="space-y-3">
+    <div class="flex justify-between items-center text-xs">
+      <span class="text-brand-slate-500">Legacy Catalog Pages:</span>
+      <span class="font-semibold text-brand-slate-800 bg-brand-slate-100 px-2 py-0.5 rounded">p. {catalogPages}</span>
+    </div>
+    <div class="flex justify-between items-center text-xs">
+      <span class="text-brand-slate-500">Compliance Standard:</span>
+      <span class="font-semibold text-brand-slate-800">ISO / SDS Available</span>
+    </div>
+    <div class="flex justify-between items-center text-xs">
+      <span class="text-brand-slate-500">Origin / Supply:</span>
+      <span class="font-semibold text-brand-slate-800 text-right">Authorized Brands Only</span>
+    </div>
+  </div>
+
+  <!-- Primary Inquiry Actions -->
+  <div class="flex flex-col gap-3 pt-2">
+    <!-- RFQ Form Trigger -->
+    <button 
+      id="open-rfq-sidebar" 
+      class="w-full inline-flex items-center justify-center px-5 py-3 text-xs font-bold text-white bg-brand-slate-900 rounded-md hover:bg-brand-slate-800 active:bg-brand-slate-950 transition-colors shadow-sm"
+    >
+      Request B2B Quote
+    </button>
+
+    <!-- WhatsApp Business Action -->
+    <a 
+      href={whatsappUrl} 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="w-full inline-flex items-center justify-center gap-2 px-5 py-3 text-xs font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 active:bg-emerald-200 border border-emerald-200/60 rounded-md transition-colors"
+      id="whatsapp-sidebar-link"
+    >
+      <!-- WhatsApp Custom Minimal SVG -->
+      <svg class="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 001.37 5.028L2 22l5.13-1.346a9.921 9.921 0 004.882 1.28h.005c5.507 0 9.99-4.478 9.99-9.985C22.007 6.478 17.519 2 12.012 2zm0 1.794c4.512 0 8.187 3.67 8.188 8.186-.001 4.516-3.676 8.186-8.188 8.186a8.125 8.125 0 01-4.148-1.129l-.298-.176-3.084.808.823-3.003-.194-.308a8.127 8.127 0 01-1.296-4.384c.002-4.516 3.677-8.186 8.187-8.186zm-3.565 4.965c-.195-.434-.4-.442-.587-.45l-.499-.006c-.173 0-.455.065-.693.325-.238.26-1.077 1.053-1.077 2.569 0 1.515 1.103 2.977 1.254 3.179.152.202 2.127 3.396 5.27 4.636 2.613 1.031 3.144.826 3.71.77.567-.056 1.826-.747 2.085-1.47.259-.723.259-1.342.182-1.471-.077-.13-.284-.203-.594-.362s-1.827-.9-2.106-1.002c-.279-.101-.482-.152-.684.152-.202.304-.783.985-.96 1.187-.176.202-.353.228-.662.069a8.318 8.318 0 01-2.456-1.515 9.176 9.176 0 01-1.7-2.115c-.178-.304-.019-.469.136-.623.14-.139.31-.362.465-.543.155-.181.207-.304.31-.506.104-.203.052-.38-.026-.54-.078-.16-.587-1.472-.816-1.986z"/>
+      </svg>
+      WhatsApp Inquiry
+    </a>
+
+    <!-- Email mailto action -->
+    <a 
+      href={mailtoUrl} 
+      class="w-full inline-flex items-center justify-center gap-2 px-5 py-3 text-xs font-semibold text-brand-slate-700 hover:text-brand-slate-950 border border-brand-slate-200 hover:border-brand-slate-400 bg-white active:bg-brand-slate-50 rounded-md transition-colors"
+      id="email-sidebar-link"
+    >
+      Email direct
+    </a>
+  </div>
+
+  <!-- Trust Indicators -->
+  <div class="bg-brand-slate-50 rounded-lg p-4 space-y-3 border border-brand-slate-100/60">
+    <h4 class="text-[10px] uppercase font-bold tracking-widest text-brand-slate-500">MF Chemicals Promise</h4>
+    <ul class="text-[11px] text-brand-slate-600 space-y-2.5">
+      <li class="flex items-start gap-2">
+        <svg class="w-3.5 h-3.5 text-emerald-600 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        </svg>
+        <span><strong>100% Genuine Supplies:</strong> Sourced directly from Pyrex, Brand, Socorex, etc.</span>
+      </li>
+      <li class="flex items-start gap-2">
+        <svg class="w-3.5 h-3.5 text-emerald-600 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <span><strong>Established B2B trust:</strong> Over 40 years of service in Penang and northern region.</span>
+      </li>
+      <li class="flex items-start gap-2">
+        <svg class="w-3.5 h-3.5 text-emerald-600 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+        <span><strong>Local Support:</strong> Quick delivery and stock items collection from Bukit Minyak warehouse.</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  // Dynamic dialog trigger for the sidebar button
+  const setupSidebarTrigger = () => {
+    const sidebarRfqBtn = document.getElementById('open-rfq-sidebar');
+    const dialogElement = document.getElementById('rfq-dialog') as HTMLDialogElement;
+    const categorySelect = document.getElementById('rfq-category') as HTMLSelectElement;
+
+    if (sidebarRfqBtn && dialogElement) {
+      sidebarRfqBtn.addEventListener('click', () => {
+        // Pre-select the appropriate category inside the modal select field
+        if (categorySelect) {
+          const currentCategory = document.title.split(' | ')[0]; // E.g. "Glassware"
+          for (let option of categorySelect.options) {
+            if (option.text.includes(currentCategory)) {
+              categorySelect.value = option.value;
+              break;
+            }
+          }
+        }
+      });
+    }
+  };
+
+  setupSidebarTrigger();
+  document.addEventListener('astro:after-swap', setupSidebarTrigger);
+</script>

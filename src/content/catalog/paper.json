@@ -1,0 +1,13 @@
+{
+  "title": "Paper Products",
+  "description": "High-purity filtration media, cellulose papers, microfibre filters, and membrane filtration devices for standard analysis.",
+  "subcategories": [
+    "Qualitative & Quantitative Filter Papers",
+    "Glass Microfibre Filters",
+    "Syringe & Membrane Filters",
+    "Chromatography Papers"
+  ],
+  "brands": ["Whatman", "Advantec", "Macherey-Nagel", "Sartorius"],
+  "catalogPages": "136-150",
+  "icon": "paper"
+}

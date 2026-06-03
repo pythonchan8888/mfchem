@@ -1,0 +1,14 @@
+{
+  "title": "Laboratory Sundries",
+  "description": "Essential laboratory support hardware, clamps, stands, tools, and heating instruments for daily experimental setups.",
+  "subcategories": [
+    "Stands & Fittings",
+    "Forceps, Tongs & Spatulas",
+    "Scissors & Blades",
+    "Laboratory Jacks",
+    "Burners & Gas Accessories"
+  ],
+  "brands": ["Usbeck", "Jaytec", "Bochem", "Haldenwanger"],
+  "catalogPages": "93-115",
+  "icon": "sundries"
+}

@@ -1,0 +1,42 @@
+---
+interface Props {
+  variant?: 'primary' | 'secondary' | 'outline' | 'white';
+  size?: 'sm' | 'md' | 'lg';
+  href?: string;
+  class?: string;
+  [key: string]: any;
+}
+
+const { 
+  variant = 'primary', 
+  size = 'md', 
+  href, 
+  class: className = '', 
+  ...rest 
+} = Astro.props;
+
+const baseStyles = 'inline-flex items-center justify-center font-semibold rounded-md transition-all duration-200 select-none';
+
+const variantStyles = {
+  primary: 'bg-brand-slate-900 text-white hover:bg-brand-slate-800 focus:ring-2 focus:ring-brand-slate-900/20 active:bg-brand-slate-950',
+  secondary: 'bg-brand-slate-100 text-brand-slate-800 hover:bg-brand-slate-200 focus:ring-2 focus:ring-brand-slate-200/50 active:bg-brand-slate-300',
+  outline: 'border border-brand-slate-300 bg-transparent text-brand-slate-700 hover:bg-brand-slate-50 hover:text-brand-slate-950 focus:ring-2 focus:ring-brand-slate-100 active:bg-brand-slate-100',
+  white: 'bg-white text-brand-slate-900 border border-transparent shadow-sm hover:bg-brand-slate-50 focus:ring-2 focus:ring-white/20 active:bg-brand-slate-100',
+};
+
+const sizeStyles = {
+  sm: 'px-3.5 py-2 text-xs',
+  md: 'px-5 py-2.5 text-xs md:text-sm',
+  lg: 'px-7 py-3 text-sm md:text-base',
+};
+
+const Element = href ? 'a' : 'button';
+---
+
+<Element 
+  href={href} 
+  class:list={[baseStyles, variantStyles[variant], sizeStyles[size], className]} 
+  {...rest}
+>
+  <slot />
+</Element>

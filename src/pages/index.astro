@@ -1,0 +1,212 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/ui/Button.astro';
+import { getCollection } from 'astro:content';
+
+// Import Icons for mapping
+import GlasswareIcon from '../components/icons/GlasswareIcon.astro';
+import PorcelainwareIcon from '../components/icons/PorcelainwareIcon.astro';
+import SilicawareIcon from '../components/icons/SilicawareIcon.astro';
+import PlasticwareIcon from '../components/icons/PlasticwareIcon.astro';
+import SundriesIcon from '../components/icons/SundriesIcon.astro';
+import SafetyIcon from '../components/icons/SafetyIcon.astro';
+import PaperIcon from '../components/icons/PaperIcon.astro';
+import LiquidIcon from '../components/icons/LiquidIcon.astro';
+import EquipmentIcon from '../components/icons/EquipmentIcon.astro';
+
+// Fetch all catalog items
+const categories = await getCollection('catalog');
+
+// Dynamic icon lookup map
+const iconMap = {
+  glassware: GlasswareIcon,
+  porcelainware: PorcelainwareIcon,
+  silicaware: SilicawareIcon,
+  plasticware: PlasticwareIcon,
+  sundries: SundriesIcon,
+  safety: SafetyIcon,
+  paper: PaperIcon,
+  liquid: LiquidIcon,
+  equipment: EquipmentIcon,
+};
+---
+
+<Layout title="Home" description="MF Chemicals Sdn Bhd (Est. 1985) - Premium B2B Scientific Supplies, Laboratory Equipment & Custom Services based in Penang, Malaysia.">
+  
+  <!-- Hero Section -->
+  <section class="relative bg-white border-b border-brand-slate-100 overflow-hidden py-24 md:py-32">
+    <!-- Visual background grid decoration -->
+    <div class="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-60"></div>
+    
+    <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
+      <!-- Trust Badge -->
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold text-brand-slate-700 bg-brand-slate-100 border border-brand-slate-200/50 mb-6">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+        Trusted Local B2B Partner Since 1985
+      </span>
+
+      <!-- Headline -->
+      <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-brand-slate-900 max-w-4xl leading-[1.1] mb-6">
+        Institutional-Grade <br class="hidden sm:inline" />
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-slate-900 via-brand-slate-800 to-brand-slate-700">Scientific Labware & Supplies</span>
+      </h1>
+
+      <!-- Subhead -->
+      <p class="text-sm md:text-base text-brand-slate-500 max-w-2xl leading-relaxed mb-10">
+        For over 40 years, MF Chemicals has supplied research facilities, testing labs, manufacturing plants, and educational institutions in Penang and across Malaysia with certified glassware, apparatus, and equipment.
+      </p>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+        <Button href="#categories-grid" variant="primary" size="lg" class="shadow-sm">
+          Browse Categories
+        </Button>
+        <button id="open-rfq-hero" class="inline-flex items-center justify-center px-7 py-3 text-sm md:text-base font-semibold rounded-md border border-brand-slate-300 bg-transparent text-brand-slate-700 hover:bg-brand-slate-50 hover:text-brand-slate-950 focus:ring-2 focus:ring-brand-slate-100 active:bg-brand-slate-100 transition-all duration-200 shadow-sm" id="hero-rfq-trigger">
+          Request RFQ / Pricing
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories Showcase Section -->
+  <section id="categories-grid" class="py-24 bg-brand-slate-50 scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="max-w-3xl mx-auto text-center mb-16 md:mb-20">
+        <h2 class="text-2xl md:text-3xl font-bold text-brand-slate-900 tracking-tight">Our 9 Core Categories</h2>
+        <div class="w-12 h-0.5 bg-brand-slate-900 mx-auto my-4"></div>
+        <p class="text-xs md:text-sm text-brand-slate-500 leading-relaxed">
+          Select a category to view subcategory details, catalog page references, represented premium brands, and submit specific inquiries.
+        </p>
+      </div>
+
+      <!-- Categories Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {categories.map((category) => {
+          const IconComponent = iconMap[category.data.icon as keyof typeof iconMap];
+          
+          return (
+            <a 
+              href={`/catalog/${category.id}`} 
+              class="group block bg-white border border-brand-slate-200/80 rounded-xl p-6 lg:p-8 shadow-premium hover:shadow-premium-hover hover:border-brand-slate-300/80 transition-all duration-300 transform hover:-translate-y-1 select-none"
+              id={`category-card-${category.id}`}
+            >
+              <!-- Card Header -->
+              <div class="flex items-center justify-between mb-5">
+                <div class="p-3 bg-brand-slate-50 rounded-lg group-hover:bg-brand-slate-900 group-hover:text-white transition-all duration-300">
+                  {IconComponent && <IconComponent class="w-6 h-6" />}
+                </div>
+                <span class="text-[10px] font-bold text-brand-slate-400 bg-brand-slate-100 px-2 py-0.5 rounded group-hover:bg-brand-slate-200 group-hover:text-brand-slate-700 transition-colors">
+                  Pages {category.data.catalogPages}
+                </span>
+              </div>
+
+              <!-- Card Title & Description -->
+              <h3 class="text-base font-bold text-brand-slate-900 group-hover:text-brand-slate-950 mb-2">
+                {category.data.title}
+              </h3>
+              <p class="text-xs text-brand-slate-500 leading-relaxed mb-6 h-12 overflow-hidden line-clamp-2">
+                {category.data.description}
+              </p>
+
+              <!-- Card Subcategories Preview -->
+              <div class="border-t border-brand-slate-100 pt-5">
+                <h4 class="text-[10px] uppercase font-bold tracking-widest text-brand-slate-400 mb-3">Sub-Categories Include</h4>
+                <div class="flex flex-wrap gap-1.5">
+                  {category.data.subcategories.slice(0, 3).map((sub) => (
+                    <span class="text-[10px] text-brand-slate-600 bg-brand-slate-50 px-2 py-0.5 rounded border border-brand-slate-100">
+                      {sub.replace(' Glassware', '').replace(' Plasticwares', '').replace(' Filters', '')}
+                    </span>
+                  ))}
+                  {category.data.subcategories.length > 3 && (
+                    <span class="text-[10px] text-brand-slate-400 bg-transparent px-1 py-0.5">
+                      +{category.data.subcategories.length - 3} more
+                    </span>
+                  )}
+                </div>
+              </div>
+
+              <!-- Action Link visual indicator -->
+              <div class="flex items-center gap-1.5 text-xs font-semibold text-brand-slate-900 group-hover:text-brand-slate-700 mt-6 pt-2 border-t border-brand-slate-50/50">
+                <span>View Range Details</span>
+                <svg class="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- B2B Trust Pillars Section -->
+  <section class="py-24 bg-white border-t border-b border-brand-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
+        <div class="space-y-3">
+          <div class="text-brand-slate-900 font-bold text-lg">01. B2B Pricing Structure</div>
+          <p class="text-xs text-brand-slate-500 leading-relaxed">
+            We operate strictly as a wholesale B2B scientific vendor, offering bulk discounting and custom quotation structures for corporate procurement teams and research organizations.
+          </p>
+        </div>
+        <div class="space-y-3">
+          <div class="text-brand-slate-900 font-bold text-lg">02. Verified Global Brands</div>
+          <p class="text-xs text-brand-slate-500 leading-relaxed">
+            Every product supplied comes with certification. We represent leading industry brands (Pyrex, MBL, Socorex, Whatman, Memmert, Ansell) guaranteeing regulatory compliance and consistency.
+          </p>
+        </div>
+        <div class="space-y-3">
+          <div class="text-brand-slate-900 font-bold text-lg">03. Local Logistic Hub</div>
+          <p class="text-xs text-brand-slate-500 leading-relaxed">
+            Located in Bukit Minyak, Penang's industrial area. We maintain local stock levels of high-turnover consumables, supporting quick dispatch and self-collection coordinates for local clients.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Callout -->
+  <section class="py-20 bg-brand-slate-950 text-white relative overflow-hidden">
+    <div class="max-w-4xl mx-auto px-4 text-center space-y-6 relative z-10">
+      <h2 class="text-2xl md:text-4xl font-bold tracking-tight">Need a Custom Quote or Special Consumables?</h2>
+      <p class="text-xs md:text-sm text-brand-slate-400 max-w-xl mx-auto leading-relaxed">
+        Our sales representatives are ready to assist. Contact our Bukit Minyak office directly or submit an RFQ form with item specifications.
+      </p>
+      <div class="pt-4 flex flex-col sm:flex-row justify-center gap-4">
+        <button id="open-rfq-cta" class="inline-flex items-center justify-center px-6 py-3 text-xs font-bold text-brand-slate-950 bg-white hover:bg-brand-slate-100 rounded-md transition-colors shadow-sm">
+          Submit RFQ Form
+        </button>
+        <a href="tel:+6045883440" class="inline-flex items-center justify-center px-6 py-3 text-xs font-bold text-white border border-brand-slate-800 hover:border-brand-slate-600 rounded-md transition-colors">
+          Call: +604-5883440
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<script>
+  // Add listeners to hero/cta quote buttons to launch dialog
+  const setupHeroTriggers = () => {
+    const dialogElement = document.getElementById('rfq-dialog') as HTMLDialogElement;
+    const heroBtn = document.getElementById('open-rfq-hero');
+    const ctaBtn = document.getElementById('open-rfq-cta');
+
+    if (dialogElement) {
+      if (heroBtn) {
+        heroBtn.addEventListener('click', () => {
+          dialogElement.showModal();
+        });
+      }
+      if (ctaBtn) {
+        ctaBtn.addEventListener('click', () => {
+          dialogElement.showModal();
+        });
+      }
+    }
+  };
+
+  setupHeroTriggers();
+  document.addEventListener('astro:after-swap', setupHeroTriggers);
+</script>

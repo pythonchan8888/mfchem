@@ -1,0 +1,243 @@
+---
+import '@fontsource/inter/300.css';
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/inter/600.css';
+import '@fontsource/inter/700.css';
+import '../styles/global.css';
+import InquiryModal from '../components/ui/InquiryModal.astro';
+
+
+interface Props {
+  title: string;
+  description?: string;
+  ogType?: string;
+  id?: string;
+}
+
+const { 
+  title, 
+  description = "MF Chemicals - Premium B2B Scientific Supplies & Labware services since 1985. Based in Penang, Malaysia.", 
+  ogType = "website",
+  id = ""
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, 'https://mfchem.wixsite.com/corporate'); // Legacy replacement reference
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- Primary Meta Tags -->
+    <title>{title} | MF Chemicals 2.0</title>
+    <meta name="title" content={`${title} | MF Chemicals 2.0`} />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={`${title} | MF Chemicals 2.0`} />
+    <meta property="og:description" content={description} />
+    
+    <!-- Additional SEO tags -->
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="MF Chemicals Sdn Bhd" />
+  </head>
+  <body class="selection:bg-brand-slate-800 selection:text-white">
+    <!-- Quick Contact Header -->
+    <div class="bg-brand-slate-950 text-brand-slate-300 text-xs py-2 px-4 md:px-8 border-b border-brand-slate-800 transition-colors">
+      <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+        <div class="flex items-center gap-4">
+          <span class="flex items-center gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            Established 1985 | Bukit Minyak, Penang
+          </span>
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="tel:+6045883440" class="hover:text-white transition-colors duration-200" id="quick-tel-1">Tel: +604-5883440</a>
+          <a href="mailto:sales@mfchempg.com" class="hover:text-white transition-colors duration-200" id="quick-email-1">sales@mfchempg.com</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-brand-slate-100 shadow-sm transition-all duration-300">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
+        <!-- Logo -->
+        <a href="/" class="flex flex-col select-none group" id="nav-logo">
+          <span class="text-xl font-bold tracking-tight text-brand-slate-900 group-hover:text-brand-slate-700 transition-colors">
+            MF CHEMICALS
+          </span>
+          <span class="text-[9px] uppercase tracking-widest text-brand-slate-400 font-semibold -mt-1">
+            Scientific Supplies & Services
+          </span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-8">
+          <a href="/" class="text-sm font-medium text-brand-slate-600 hover:text-brand-slate-950 transition-colors duration-200">
+            Home
+          </a>
+          <div class="relative group">
+            <button class="flex items-center gap-1 text-sm font-medium text-brand-slate-600 hover:text-brand-slate-950 transition-colors duration-200 py-2">
+              Categories
+              <svg class="w-4 h-4 text-brand-slate-400 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="absolute right-0 top-full w-72 bg-white border border-brand-slate-200 rounded-lg shadow-premium opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200 z-50 p-2">
+              <div class="grid gap-1">
+                <a href="/catalog/glassware" class="px-3 py-2 text-xs font-medium text-brand-slate-700 hover:bg-brand-slate-50 hover:text-brand-slate-950 rounded-md transition-colors">1. Glassware</a>
+                <a href="/catalog/porcelainware" class="px-3 py-2 text-xs font-medium text-brand-slate-700 hover:bg-brand-slate-50 hover:text-brand-slate-950 rounded-md transition-colors">2. Porcelainware</a>
+                <a href="/catalog/silicaware" class="px-3 py-2 text-xs font-medium text-brand-slate-700 hover:bg-brand-slate-50 hover:text-brand-slate-950 rounded-md transition-colors">3. Silicaware</a>
+                <a href="/catalog/plasticware" class="px-3 py-2 text-xs font-medium text-brand-slate-700 hover:bg-brand-slate-50 hover:text-brand-slate-950 rounded-md transition-colors">4. Plasticware</a>
+                <a href="/catalog/sundries" class="px-3 py-2 text-xs font-medium text-brand-slate-700 hover:bg-brand-slate-50 hover:text-brand-slate-950 rounded-md transition-colors">5. Laboratory Sundries</a>
+                <a href="/catalog/safety" class="px-3 py-2 text-xs font-medium text-brand-slate-700 hover:bg-brand-slate-50 hover:text-brand-slate-950 rounded-md transition-colors">6. Laboratory Safety</a>
+                <a href="/catalog/paper" class="px-3 py-2 text-xs font-medium text-brand-slate-700 hover:bg-brand-slate-50 hover:text-brand-slate-950 rounded-md transition-colors">7. Paper Products</a>
+                <a href="/catalog/liquid" class="px-3 py-2 text-xs font-medium text-brand-slate-700 hover:bg-brand-slate-50 hover:text-brand-slate-950 rounded-md transition-colors">8. Liquid Handling</a>
+                <a href="/catalog/equipment" class="px-3 py-2 text-xs font-medium text-brand-slate-700 hover:bg-brand-slate-50 hover:text-brand-slate-950 rounded-md transition-colors">9. Laboratory Equipment</a>
+              </div>
+            </div>
+          </div>
+          <button id="open-rfq-header" class="inline-flex items-center justify-center px-4 py-2 text-xs font-semibold text-white bg-brand-slate-900 rounded-md hover:bg-brand-slate-800 transition-all duration-200">
+            Request Quote
+          </button>
+        </nav>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-toggle" class="md:hidden p-2 text-brand-slate-600 hover:text-brand-slate-950 focus:outline-none transition-colors" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path id="hamburger-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Navigation Drawer -->
+      <div id="mobile-menu" class="hidden md:hidden border-t border-brand-slate-100 bg-white">
+        <div class="px-4 pt-2 pb-6 space-y-3">
+          <a href="/" class="block px-3 py-2 text-sm font-medium text-brand-slate-700 hover:bg-brand-slate-50 rounded-md">Home</a>
+          <div class="px-3 py-1 text-xs font-bold text-brand-slate-400 uppercase tracking-widest">Categories</div>
+          <div class="grid grid-cols-1 gap-1 pl-3">
+            <a href="/catalog/glassware" class="px-3 py-2 text-xs font-medium text-brand-slate-600 hover:bg-brand-slate-50 rounded-md">1. Glassware</a>
+            <a href="/catalog/porcelainware" class="px-3 py-2 text-xs font-medium text-brand-slate-600 hover:bg-brand-slate-50 rounded-md">2. Porcelainware</a>
+            <a href="/catalog/silicaware" class="px-3 py-2 text-xs font-medium text-brand-slate-600 hover:bg-brand-slate-50 rounded-md">3. Silicaware</a>
+            <a href="/catalog/plasticware" class="px-3 py-2 text-xs font-medium text-brand-slate-600 hover:bg-brand-slate-50 rounded-md">4. Plasticware</a>
+            <a href="/catalog/sundries" class="px-3 py-2 text-xs font-medium text-brand-slate-600 hover:bg-brand-slate-50 rounded-md">5. Laboratory Sundries</a>
+            <a href="/catalog/safety" class="px-3 py-2 text-xs font-medium text-brand-slate-600 hover:bg-brand-slate-50 rounded-md">6. Laboratory Safety</a>
+            <a href="/catalog/paper" class="px-3 py-2 text-xs font-medium text-brand-slate-600 hover:bg-brand-slate-50 rounded-md">7. Paper Products</a>
+            <a href="/catalog/liquid" class="px-3 py-2 text-xs font-medium text-brand-slate-600 hover:bg-brand-slate-50 rounded-md">8. Liquid Handling</a>
+            <a href="/catalog/equipment" class="px-3 py-2 text-xs font-medium text-brand-slate-600 hover:bg-brand-slate-50 rounded-md">9. Laboratory Equipment</a>
+          </div>
+          <div class="pt-2">
+            <button id="open-rfq-mobile" class="w-full text-center px-4 py-2 text-xs font-semibold text-white bg-brand-slate-900 rounded-md hover:bg-brand-slate-800 transition-all duration-200">
+              Request Quote
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow">
+      <slot />
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="bg-brand-slate-950 text-brand-slate-400 border-t border-brand-slate-900 pt-16 pb-8 px-4 md:px-8">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-12">
+          <!-- Corporate Column -->
+          <div class="flex flex-col space-y-4">
+            <h3 class="text-white font-semibold text-sm tracking-widest uppercase">MF Chemicals</h3>
+            <p class="text-xs text-brand-slate-500 leading-relaxed max-w-sm">
+              Established in 1985 in Penang, Malaysia. We specialize in B2B laboratory equipment, custom glassware, high-grade porcelain, and premium chemical supplies supporting industrial, scientific, and healthcare institutions.
+            </p>
+            <div class="flex items-center gap-3 pt-2 text-brand-slate-500">
+              <span class="text-xs">© 2026 MF Chemicals Sdn Bhd. All rights reserved.</span>
+            </div>
+          </div>
+
+          <!-- Quick Navigation -->
+          <div class="flex flex-col space-y-4">
+            <h3 class="text-white font-semibold text-sm tracking-widest uppercase text-left">Category Links</h3>
+            <div class="grid grid-cols-2 gap-x-4 gap-y-2 text-xs">
+              <a href="/catalog/glassware" class="hover:text-white transition-colors">Glassware</a>
+              <a href="/catalog/porcelainware" class="hover:text-white transition-colors">Porcelainware</a>
+              <a href="/catalog/silicaware" class="hover:text-white transition-colors">Silicaware</a>
+              <a href="/catalog/plasticware" class="hover:text-white transition-colors">Plasticware</a>
+              <a href="/catalog/sundries" class="hover:text-white transition-colors">Laboratory Sundries</a>
+              <a href="/catalog/safety" class="hover:text-white transition-colors">Laboratory Safety</a>
+              <a href="/catalog/paper" class="hover:text-white transition-colors">Paper Products</a>
+              <a href="/catalog/liquid" class="hover:text-white transition-colors">Liquid Handling</a>
+              <a href="/catalog/equipment" class="hover:text-white transition-colors">Laboratory Equipment</a>
+            </div>
+          </div>
+
+          <!-- Contact & Location Column -->
+          <div class="flex flex-col space-y-4">
+            <h3 class="text-white font-semibold text-sm tracking-widest uppercase">Penang Office & Warehouse</h3>
+            <div class="flex flex-col space-y-2 text-xs leading-relaxed">
+              <p class="text-brand-slate-300">
+                No. 27, Lorong Asas Jaya 4,<br />
+                Kawasan Industri Ringan Asas Jaya,<br />
+                Bukit Minyak, 14100 Bukit Mertajam,<br />
+                Penang, Malaysia.
+              </p>
+              <div class="pt-2 flex flex-col space-y-1">
+                <span class="flex items-center gap-2">
+                  <span class="text-brand-slate-600">Tel:</span>
+                  <a href="tel:+6045883440" class="hover:text-white transition-colors">+604-5883440</a> / <a href="tel:+6045883448" class="hover:text-white transition-colors">+604-5883448</a>
+                </span>
+                <span class="flex items-center gap-2">
+                  <span class="text-brand-slate-600">Email:</span>
+                  <a href="mailto:sales@mfchempg.com" class="hover:text-white transition-colors">sales@mfchempg.com</a>
+                </span>
+                <span class="flex items-center gap-2">
+                  <span class="text-brand-slate-600">Alt:</span>
+                  <a href="mailto:mfchem@gmail.com" class="hover:text-white transition-colors">mfchem@gmail.com</a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-t border-brand-slate-900/60 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-brand-slate-600">
+          <p>Institutional B2B Scientific Laboratory Supplies & Services Provider.</p>
+          <div class="flex gap-6">
+            <a href="https://mfchem.wixsite.com/corporate" target="_blank" rel="noopener noreferrer" class="hover:text-brand-slate-400 transition-colors">Legacy Wix Site Reference</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Global Inquiry Modal -->
+    <InquiryModal />
+
+    <!-- Vanilla Script for Menu Toggle and Dialog triggers -->
+    <script>
+      // Mobile menu functionality
+      const toggleBtn = document.getElementById('mobile-menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const hamburgerIcon = document.getElementById('hamburger-icon');
+
+      if (toggleBtn && mobileMenu && hamburgerIcon) {
+        toggleBtn.addEventListener('click', () => {
+          const isHidden = mobileMenu.classList.contains('hidden');
+          if (isHidden) {
+            mobileMenu.classList.remove('hidden');
+            hamburgerIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12'); // X icon
+          } else {
+            mobileMenu.classList.add('hidden');
+            hamburgerIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16'); // Hamburger icon
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "title": "Porcelainware",
+  "description": "High-temperature refractory porcelain items including crucibles, basins, and funnels, suitable for extreme thermal analysis.",
+  "subcategories": [
+    "Crucibles",
+    "Evaporating Basins",
+    "Buchner Funnels",
+    "Vials, Cells & Cuvettes",
+    "Mortars & Pestles"
+  ],
+  "brands": ["Haldenwanger", "CoorsTek", "Jizerska Porcelanka"],
+  "catalogPages": "46-58",
+  "icon": "porcelainware"
+}

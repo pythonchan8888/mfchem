@@ -1,0 +1,14 @@
+{
+  "title": "Glassware",
+  "description": "High-precision laboratory glassware designed for chemical resistance, thermal stability, and volumetric accuracy.",
+  "subcategories": [
+    "General Glassware",
+    "Volumetric Glassware",
+    "Interchangeable Glassware",
+    "Sintered Glassware",
+    "Rods, Tubings & Capillaries"
+  ],
+  "brands": ["Pyrex", "MBL", "Duran", "Quickfit"],
+  "catalogPages": "1-45",
+  "icon": "glassware"
+}
