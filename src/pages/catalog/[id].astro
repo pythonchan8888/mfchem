@@ -40,6 +40,7 @@ const iconMap = {
 };
 
 const IconComponent = iconMap[icon as keyof typeof iconMap];
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Layout 
@@ -53,7 +54,7 @@ const IconComponent = iconMap[icon as keyof typeof iconMap];
       <nav class="flex mb-8 text-xs font-semibold text-brand-slate-400 select-none" aria-label="Breadcrumb">
         <ol class="inline-flex items-center space-x-1 md:space-x-2">
           <li class="inline-flex items-center">
-            <a href="/" class="hover:text-brand-slate-700 transition-colors">Home</a>
+            <a href={`${base}/`} class="hover:text-brand-slate-700 transition-colors">Home</a>
           </li>
           <li class="flex items-center">
             <svg class="w-3 h-3 mx-1.5 text-brand-slate-300" fill="currentColor" viewBox="0 0 20 20">
@@ -104,7 +105,7 @@ const IconComponent = iconMap[icon as keyof typeof iconMap];
           <!-- Banner Image Showcase (Right Side) -->
           <div class="p-6 md:p-8 md:w-[40%] flex justify-center items-center w-full bg-brand-slate-50/50 md:bg-transparent border-t md:border-t-0 md:border-l border-brand-slate-100/80">
             <img 
-              src={`/images/banners/${category.id}.png`} 
+              src={`${base}/images/banners/${category.id}.png`} 
               alt={`${title} banner showcase`}
               class="w-full max-w-[280px] md:max-w-full h-auto aspect-square object-contain rounded-lg border border-brand-slate-200/40 shadow-sm"
               loading="eager"

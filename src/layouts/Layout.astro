@@ -23,6 +23,7 @@ const {
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, 'https://www.mfchemicals.net');
+const base = import.meta.env.BASE_URL.replace(/\/$/, ''); // e.g. '/mfchem' or ''
 ---
 
 <!doctype html>
@@ -30,7 +31,7 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://www.mfchemicals.net');
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/images/logo-icon.png" />
+    <link rel="icon" type="image/png" href={`${base}/images/logo-icon.png`} />
     <meta name="generator" content={Astro.generator} />
     
     <!-- Primary Meta Tags -->
@@ -70,9 +71,9 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://www.mfchemicals.net');
     <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-brand-slate-100 shadow-sm transition-all duration-300">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
         <!-- Logo -->
-        <a href="/" class="flex items-center gap-3 select-none group" id="nav-logo">
+        <a href={`${base}/`} class="flex items-center gap-3 select-none group" id="nav-logo">
           <img 
-            src="/images/logo-icon.png" 
+            src={`${base}/images/logo-icon.png`} 
             alt="MF Chemicals logo icon" 
             class="h-11 w-auto object-contain transition-opacity group-hover:opacity-90"
           />
@@ -88,7 +89,7 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://www.mfchemicals.net');
 
         <!-- Desktop Navigation -->
         <nav class="hidden md:flex items-center gap-8">
-          <a href="/" class="text-sm font-medium text-brand-slate-600 hover:text-brand-steel-600 transition-colors duration-200">
+          <a href={`${base}/`} class="text-sm font-medium text-brand-slate-600 hover:text-brand-steel-600 transition-colors duration-200">
             Home
           </a>
           <div class="relative group">
@@ -100,15 +101,15 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://www.mfchemicals.net');
             </button>
             <div class="absolute right-0 top-full w-72 bg-white border border-brand-slate-200 rounded-lg shadow-premium opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200 z-50 p-2">
               <div class="grid gap-1">
-                <a href="/catalog/glassware" class="px-3 py-2 text-xs font-medium text-brand-slate-700 hover:bg-brand-steel-50 hover:text-brand-steel-700 rounded-md transition-colors">1. Glassware</a>
-                <a href="/catalog/porcelainware" class="px-3 py-2 text-xs font-medium text-brand-slate-700 hover:bg-brand-steel-50 hover:text-brand-steel-700 rounded-md transition-colors">2. Porcelainware</a>
-                <a href="/catalog/silicaware" class="px-3 py-2 text-xs font-medium text-brand-slate-700 hover:bg-brand-steel-50 hover:text-brand-steel-700 rounded-md transition-colors">3. Silicaware</a>
-                <a href="/catalog/plasticware" class="px-3 py-2 text-xs font-medium text-brand-slate-700 hover:bg-brand-steel-50 hover:text-brand-steel-700 rounded-md transition-colors">4. Plasticware</a>
-                <a href="/catalog/sundries" class="px-3 py-2 text-xs font-medium text-brand-slate-700 hover:bg-brand-steel-50 hover:text-brand-steel-700 rounded-md transition-colors">5. Laboratory Sundries</a>
-                <a href="/catalog/safety" class="px-3 py-2 text-xs font-medium text-brand-slate-700 hover:bg-brand-steel-50 hover:text-brand-steel-700 rounded-md transition-colors">6. Laboratory Safety</a>
-                <a href="/catalog/paper" class="px-3 py-2 text-xs font-medium text-brand-slate-700 hover:bg-brand-steel-50 hover:text-brand-steel-700 rounded-md transition-colors">7. Paper Products</a>
-                <a href="/catalog/liquid" class="px-3 py-2 text-xs font-medium text-brand-slate-700 hover:bg-brand-steel-50 hover:text-brand-steel-700 rounded-md transition-colors">8. Liquid Handling</a>
-                <a href="/catalog/equipment" class="px-3 py-2 text-xs font-medium text-brand-slate-700 hover:bg-brand-steel-50 hover:text-brand-steel-700 rounded-md transition-colors">9. Laboratory Equipment</a>
+                <a href={`${base}/catalog/glassware`} class="px-3 py-2 text-xs font-medium text-brand-slate-700 hover:bg-brand-steel-50 hover:text-brand-steel-700 rounded-md transition-colors">1. Glassware</a>
+                <a href={`${base}/catalog/porcelainware`} class="px-3 py-2 text-xs font-medium text-brand-slate-700 hover:bg-brand-steel-50 hover:text-brand-steel-700 rounded-md transition-colors">2. Porcelainware</a>
+                <a href={`${base}/catalog/silicaware`} class="px-3 py-2 text-xs font-medium text-brand-slate-700 hover:bg-brand-steel-50 hover:text-brand-steel-700 rounded-md transition-colors">3. Silicaware</a>
+                <a href={`${base}/catalog/plasticware`} class="px-3 py-2 text-xs font-medium text-brand-slate-700 hover:bg-brand-steel-50 hover:text-brand-steel-700 rounded-md transition-colors">4. Plasticware</a>
+                <a href={`${base}/catalog/sundries`} class="px-3 py-2 text-xs font-medium text-brand-slate-700 hover:bg-brand-steel-50 hover:text-brand-steel-700 rounded-md transition-colors">5. Laboratory Sundries</a>
+                <a href={`${base}/catalog/safety`} class="px-3 py-2 text-xs font-medium text-brand-slate-700 hover:bg-brand-steel-50 hover:text-brand-steel-700 rounded-md transition-colors">6. Laboratory Safety</a>
+                <a href={`${base}/catalog/paper`} class="px-3 py-2 text-xs font-medium text-brand-slate-700 hover:bg-brand-steel-50 hover:text-brand-steel-700 rounded-md transition-colors">7. Paper Products</a>
+                <a href={`${base}/catalog/liquid`} class="px-3 py-2 text-xs font-medium text-brand-slate-700 hover:bg-brand-steel-50 hover:text-brand-steel-700 rounded-md transition-colors">8. Liquid Handling</a>
+                <a href={`${base}/catalog/equipment`} class="px-3 py-2 text-xs font-medium text-brand-slate-700 hover:bg-brand-steel-50 hover:text-brand-steel-700 rounded-md transition-colors">9. Laboratory Equipment</a>
               </div>
             </div>
           </div>
@@ -127,18 +128,18 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://www.mfchemicals.net');
 
       <div id="mobile-menu" class="hidden md:hidden border-t border-brand-slate-100 bg-white">
         <div class="px-4 pt-2 pb-6 space-y-3">
-          <a href="/" class="block px-3 py-2.5 text-sm font-medium text-brand-slate-700 hover:bg-brand-slate-50 rounded-md">Home</a>
+          <a href={`${base}/`} class="block px-3 py-2.5 text-sm font-medium text-brand-slate-700 hover:bg-brand-slate-50 rounded-md">Home</a>
           <div class="px-3 py-1 text-xs font-bold text-brand-slate-400 uppercase tracking-widest">Categories</div>
           <div class="grid grid-cols-1 gap-1 pl-3">
-            <a href="/catalog/glassware" class="px-3 py-2.5 text-xs font-medium text-brand-slate-600 hover:bg-brand-slate-50 rounded-md">1. Glassware</a>
-            <a href="/catalog/porcelainware" class="px-3 py-2.5 text-xs font-medium text-brand-slate-600 hover:bg-brand-slate-50 rounded-md">2. Porcelainware</a>
-            <a href="/catalog/silicaware" class="px-3 py-2.5 text-xs font-medium text-brand-slate-600 hover:bg-brand-slate-50 rounded-md">3. Silicaware</a>
-            <a href="/catalog/plasticware" class="px-3 py-2.5 text-xs font-medium text-brand-slate-600 hover:bg-brand-slate-50 rounded-md">4. Plasticware</a>
-            <a href="/catalog/sundries" class="px-3 py-2.5 text-xs font-medium text-brand-slate-600 hover:bg-brand-slate-50 rounded-md">5. Laboratory Sundries</a>
-            <a href="/catalog/safety" class="px-3 py-2.5 text-xs font-medium text-brand-slate-600 hover:bg-brand-slate-50 rounded-md">6. Laboratory Safety</a>
-            <a href="/catalog/paper" class="px-3 py-2.5 text-xs font-medium text-brand-slate-600 hover:bg-brand-slate-50 rounded-md">7. Paper Products</a>
-            <a href="/catalog/liquid" class="px-3 py-2.5 text-xs font-medium text-brand-slate-600 hover:bg-brand-slate-50 rounded-md">8. Liquid Handling</a>
-            <a href="/catalog/equipment" class="px-3 py-2.5 text-xs font-medium text-brand-slate-600 hover:bg-brand-slate-50 rounded-md">9. Laboratory Equipment</a>
+            <a href={`${base}/catalog/glassware`} class="px-3 py-2.5 text-xs font-medium text-brand-slate-600 hover:bg-brand-slate-50 rounded-md">1. Glassware</a>
+            <a href={`${base}/catalog/porcelainware`} class="px-3 py-2.5 text-xs font-medium text-brand-slate-600 hover:bg-brand-slate-50 rounded-md">2. Porcelainware</a>
+            <a href={`${base}/catalog/silicaware`} class="px-3 py-2.5 text-xs font-medium text-brand-slate-600 hover:bg-brand-slate-50 rounded-md">3. Silicaware</a>
+            <a href={`${base}/catalog/plasticware`} class="px-3 py-2.5 text-xs font-medium text-brand-slate-600 hover:bg-brand-slate-50 rounded-md">4. Plasticware</a>
+            <a href={`${base}/catalog/sundries`} class="px-3 py-2.5 text-xs font-medium text-brand-slate-600 hover:bg-brand-slate-50 rounded-md">5. Laboratory Sundries</a>
+            <a href={`${base}/catalog/safety`} class="px-3 py-2.5 text-xs font-medium text-brand-slate-600 hover:bg-brand-slate-50 rounded-md">6. Laboratory Safety</a>
+            <a href={`${base}/catalog/paper`} class="px-3 py-2.5 text-xs font-medium text-brand-slate-600 hover:bg-brand-slate-50 rounded-md">7. Paper Products</a>
+            <a href={`${base}/catalog/liquid`} class="px-3 py-2.5 text-xs font-medium text-brand-slate-600 hover:bg-brand-slate-50 rounded-md">8. Liquid Handling</a>
+            <a href={`${base}/catalog/equipment`} class="px-3 py-2.5 text-xs font-medium text-brand-slate-600 hover:bg-brand-slate-50 rounded-md">9. Laboratory Equipment</a>
           </div>
           <div class="pt-2">
             <button id="open-rfq-mobile" class="w-full text-center px-4 py-3 text-sm font-semibold text-white bg-brand-steel-600 rounded-md hover:bg-brand-steel-700 transition-all duration-200 shadow-sm">
@@ -160,9 +161,9 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://www.mfchemicals.net');
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-12">
           <!-- Corporate Column -->
           <div class="flex flex-col space-y-4">
-            <a href="/" class="flex items-center gap-2 select-none group">
+            <a href={`${base}/`} class="flex items-center gap-2 select-none group">
               <img 
-                src="/images/logo-icon.png" 
+                src={`${base}/images/logo-icon.png`} 
                 alt="MF Chemicals logo icon" 
                 class="h-8 w-auto object-contain transition-opacity group-hover:opacity-90"
               />
@@ -187,15 +188,15 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://www.mfchemicals.net');
           <div class="flex flex-col space-y-4">
             <h3 class="text-white font-semibold text-sm tracking-widest uppercase text-left">Category Links</h3>
             <div class="grid grid-cols-2 gap-x-4 gap-y-2 text-xs">
-              <a href="/catalog/glassware" class="hover:text-brand-amber-300 transition-colors">Glassware</a>
-              <a href="/catalog/porcelainware" class="hover:text-brand-amber-300 transition-colors">Porcelainware</a>
-              <a href="/catalog/silicaware" class="hover:text-brand-amber-300 transition-colors">Silicaware</a>
-              <a href="/catalog/plasticware" class="hover:text-brand-amber-300 transition-colors">Plasticware</a>
-              <a href="/catalog/sundries" class="hover:text-brand-amber-300 transition-colors">Laboratory Sundries</a>
-              <a href="/catalog/safety" class="hover:text-brand-amber-300 transition-colors">Laboratory Safety</a>
-              <a href="/catalog/paper" class="hover:text-brand-amber-300 transition-colors">Paper Products</a>
-              <a href="/catalog/liquid" class="hover:text-brand-amber-300 transition-colors">Liquid Handling</a>
-              <a href="/catalog/equipment" class="hover:text-brand-amber-300 transition-colors">Laboratory Equipment</a>
+              <a href={`${base}/catalog/glassware`} class="hover:text-brand-amber-300 transition-colors">Glassware</a>
+              <a href={`${base}/catalog/porcelainware`} class="hover:text-brand-amber-300 transition-colors">Porcelainware</a>
+              <a href={`${base}/catalog/silicaware`} class="hover:text-brand-amber-300 transition-colors">Silicaware</a>
+              <a href={`${base}/catalog/plasticware`} class="hover:text-brand-amber-300 transition-colors">Plasticware</a>
+              <a href={`${base}/catalog/sundries`} class="hover:text-brand-amber-300 transition-colors">Laboratory Sundries</a>
+              <a href={`${base}/catalog/safety`} class="hover:text-brand-amber-300 transition-colors">Laboratory Safety</a>
+              <a href={`${base}/catalog/paper`} class="hover:text-brand-amber-300 transition-colors">Paper Products</a>
+              <a href={`${base}/catalog/liquid`} class="hover:text-brand-amber-300 transition-colors">Liquid Handling</a>
+              <a href={`${base}/catalog/equipment`} class="hover:text-brand-amber-300 transition-colors">Laboratory Equipment</a>
             </div>
           </div>
 
