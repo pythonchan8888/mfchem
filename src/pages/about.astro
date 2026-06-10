@@ -52,21 +52,6 @@ const aboutJsonLd = {
     </div>
   </section>
 
-  <!-- Motto Quote -->
-  <section class="py-12 md:py-16 bg-white border-b border-brand-slate-100">
-    <div class="max-w-3xl mx-auto px-4 text-center">
-      <div class="flex items-center justify-center gap-4 mb-2">
-        <div class="h-px w-12 bg-brand-slate-200"></div>
-        <span class="text-brand-slate-300">◆</span>
-        <div class="h-px w-12 bg-brand-slate-200"></div>
-      </div>
-      <blockquote class="text-2xl md:text-4xl font-bold tracking-tight text-brand-slate-900 leading-tight" style="font-family: 'Georgia', 'Times New Roman', serif;">
-        &#8220;Do It Right The First Time&#8221;
-      </blockquote>
-      <p class="text-xs text-brand-slate-400 mt-4 uppercase tracking-widest font-semibold">Michael Chan, Founder of MF Chemicals</p>
-    </div>
-  </section>
-
   <!-- Story Section -->
   <section class="py-16 md:py-24 bg-white">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -112,39 +97,18 @@ const aboutJsonLd = {
     </div>
   </section>
 
-  <!-- What We Supply -->
-  <section class="py-16 md:py-24 bg-brand-slate-50 border-y border-brand-slate-100">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-14">
-        <span class="text-[10px] uppercase font-bold tracking-widest text-brand-steel-600">What We Supply</span>
-        <h2 class="text-2xl md:text-3xl font-bold text-brand-slate-900 tracking-tight mt-2">9 Core Product Categories</h2>
-        <div class="w-10 h-0.5 bg-brand-steel-500 mx-auto mt-4"></div>
-        <p class="text-xs md:text-sm text-brand-slate-500 mt-4 max-w-xl mx-auto">
-          Every product category is backed by authorized distribution agreements and full documentation support — MSDS, calibration certificates, and batch traceability.
-        </p>
+  <!-- Motto Quote -->
+  <section class="py-12 md:py-16 bg-brand-slate-50 border-y border-brand-slate-100">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <div class="flex items-center justify-center gap-4 mb-2">
+        <div class="h-px w-12 bg-brand-slate-200"></div>
+        <span class="text-brand-slate-300">◆</span>
+        <div class="h-px w-12 bg-brand-slate-200"></div>
       </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {[
-          { num: '01', name: 'Glassware', desc: 'Borosilicate & soda-lime glass. Pyrex, MBL, Duran, Quickfit.' },
-          { num: '02', name: 'Porcelainware', desc: 'High-temperature refractory crucibles, basins & funnels.' },
-          { num: '03', name: 'Silicaware', desc: 'Silicone tubing, stoppers, heating mantles & accessories.' },
-          { num: '04', name: 'Plasticware', desc: 'Break-resistant, chemical-compatible plastic labware.' },
-          { num: '05', name: 'Laboratory Sundries', desc: 'Brushes, clamps, stands, spatulas, tongs & tools.' },
-          { num: '06', name: 'Laboratory Safety', desc: 'PPE, eyewash stations, lab coats, breathing protection.' },
-          { num: '07', name: 'Paper Products', desc: 'Qualitative, quantitative filter papers & membrane filters.' },
-          { num: '08', name: 'Liquid Handling', desc: 'Pipettors, dispensers, digital burettes from Socorex & more.' },
-          { num: '09', name: 'Laboratory Equipment', desc: 'Balances, autoclaves, water distillers, fume cupboards.' }
-        ].map(cat => (
-          <div class="bg-white border border-brand-slate-200/60 rounded-lg p-5 flex items-start gap-4 hover:border-brand-slate-300 hover:shadow-premium transition-all">
-            <span class="text-base font-bold text-brand-steel-500 shrink-0">{cat.num}</span>
-            <div>
-              <h3 class="text-sm font-bold text-brand-slate-800">{cat.name}</h3>
-              <p class="text-[11px] text-brand-slate-500 leading-relaxed mt-1">{cat.desc}</p>
-            </div>
-          </div>
-        ))}
-      </div>
+      <blockquote class="text-2xl md:text-4xl font-bold tracking-tight text-brand-slate-900 leading-tight" style="font-family: 'Georgia', 'Times New Roman', serif;">
+        &#8220;Do It Right The First Time&#8221;
+      </blockquote>
+      <p class="text-xs text-brand-slate-400 mt-4 uppercase tracking-widest font-semibold">Michael Chan, Founder of MF Chemicals</p>
     </div>
   </section>
 
