@@ -2,38 +2,76 @@
 import Layout from '../layouts/Layout.astro';
 import Button from '../components/ui/Button.astro';
 import { getCollection } from 'astro:content';
-
-// Import Icons for mapping
-import GlasswareIcon from '../components/icons/GlasswareIcon.astro';
-import PorcelainwareIcon from '../components/icons/PorcelainwareIcon.astro';
-import SilicawareIcon from '../components/icons/SilicawareIcon.astro';
-import PlasticwareIcon from '../components/icons/PlasticwareIcon.astro';
-import SundriesIcon from '../components/icons/SundriesIcon.astro';
-import SafetyIcon from '../components/icons/SafetyIcon.astro';
-import PaperIcon from '../components/icons/PaperIcon.astro';
-import LiquidIcon from '../components/icons/LiquidIcon.astro';
-import EquipmentIcon from '../components/icons/EquipmentIcon.astro';
+import { iconMap, type CategoryIconKey } from '../utils/icons';
+import { base } from '../utils/base';
 
 // Fetch all catalog items
 const categories = await getCollection('catalog');
 
-// Dynamic icon lookup map
-const iconMap = {
-  glassware: GlasswareIcon,
-  porcelainware: PorcelainwareIcon,
-  silicaware: SilicawareIcon,
-  plasticware: PlasticwareIcon,
-  sundries: SundriesIcon,
-  safety: SafetyIcon,
-  paper: PaperIcon,
-  liquid: LiquidIcon,
-  equipment: EquipmentIcon,
-};
+// Helper: extract subcategory name regardless of format (string or object)
+const getSubName = (sub: string | { name: string; description: string }) =>
+  typeof sub === 'string' ? sub : sub.name;
 
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+// LocalBusiness + WebSite structured data for homepage
+const homepageJsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "MF Chemicals Sdn Bhd",
+    "image": `${new URL(`${base}/images/og-social-preview.png`, Astro.site)}`,
+    "url": "https://www.mfchemicals.net",
+    "@id": "https://www.mfchemicals.net/#localbusiness",
+    "telephone": "+604-5883440",
+    "email": "info@mfchemicals.net",
+    "description": "Wholesale B2B supplier of institutional-grade scientific labware, laboratory equipment, and consumable supplies. Established 1985 in Penang, Malaysia.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "No. 27, Lorong Asas Jaya 4, Kawasan Industri Ringan Asas Jaya",
+      "addressLocality": "Bukit Minyak, Bukit Mertajam",
+      "addressRegion": "Penang",
+      "postalCode": "14100",
+      "addressCountry": "MY"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 5.3299,
+      "longitude": 100.4587
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "08:30",
+      "closes": "17:30"
+    },
+    "priceRange": "$$",
+    "areaServed": {
+      "@type": "Country",
+      "name": "Malaysia"
+    },
+    "knowsAbout": [
+      "Laboratory Glassware",
+      "Scientific Equipment",
+      "Laboratory Safety Equipment",
+      "Liquid Handling Instruments",
+      "Filter Papers",
+      "Porcelain Labware"
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "MF Chemicals",
+    "url": "https://www.mfchemicals.net",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.mfchemicals.net/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+];
 ---
 
-<Layout title="Home" description="MF Chemicals Sdn Bhd (Est. 1985) - Premium B2B Scientific Supplies, Laboratory Equipment & Custom Services based in Penang, Malaysia.">
+<Layout title="Home" description="MF Chemicals Sdn Bhd (Est. 1985) - Premium B2B Scientific Supplies, Laboratory Equipment & Custom Services based in Penang, Malaysia." jsonLd={homepageJsonLd}>
   
   <!-- Hero Section -->
   <section class="relative bg-white border-b border-brand-slate-100 overflow-hidden py-16 md:py-32">
@@ -85,54 +123,56 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       <!-- Categories Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
         {categories.map((category) => {
-          const IconComponent = iconMap[category.data.icon as keyof typeof iconMap];
+          const IconComponent = iconMap[category.data.icon as CategoryIconKey];
           
           return (
-            <a 
-              href={`${base}/catalog/${category.id}`} 
-              class="group block bg-white border border-brand-slate-200/80 rounded-xl p-6 lg:p-8 shadow-premium hover:shadow-premium-hover hover:border-brand-slate-300/80 transition-all duration-300 transform hover:-translate-y-1 select-none"
-              id={`category-card-${category.id}`}
-            >
-              <!-- Card Header -->
-              <div class="flex items-center justify-between mb-5">
-                <div class="p-3 bg-brand-slate-50 rounded-lg group-hover:bg-brand-steel-600 group-hover:text-white transition-all duration-300">
-                  {IconComponent && <IconComponent class="w-6 h-6" />}
+            <article class="group">
+              <a 
+                href={`${base}/catalog/${category.id}`} 
+                class="block bg-white border border-brand-slate-200/80 rounded-xl p-6 lg:p-8 shadow-premium hover:shadow-premium-hover hover:border-brand-slate-300/80 transition-all duration-300 transform hover:-translate-y-1 select-none h-full"
+                id={`category-card-${category.id}`}
+              >
+                {/* Card Header */}
+                <div class="flex items-center justify-between mb-5">
+                  <div class="p-3 bg-brand-slate-50 rounded-lg group-hover:bg-brand-steel-600 group-hover:text-white transition-all duration-300">
+                    {IconComponent && <IconComponent class="w-6 h-6" />}
+                  </div>
                 </div>
-              </div>
 
-              <!-- Card Title & Description -->
-              <h3 class="text-base font-bold text-brand-slate-900 group-hover:text-brand-slate-950 mb-2">
-                {category.data.title}
-              </h3>
-              <p class="text-xs text-brand-slate-500 leading-relaxed mb-6 line-clamp-3">
-                {category.data.description}
-              </p>
+                {/* Card Title & Description */}
+                <h3 class="text-base font-bold text-brand-slate-900 group-hover:text-brand-slate-950 mb-2">
+                  {category.data.title}
+                </h3>
+                <p class="text-xs text-brand-slate-500 leading-relaxed mb-6 line-clamp-3">
+                  {category.data.description}
+                </p>
 
-              <!-- Card Subcategories Preview -->
-              <div class="border-t border-brand-slate-100 pt-5">
-                <h4 class="text-[10px] uppercase font-bold tracking-widest text-brand-slate-400 mb-3">Sub-Categories Include</h4>
-                <div class="flex flex-wrap gap-1.5">
-                  {category.data.subcategories.slice(0, 3).map((sub) => (
-                    <span class="text-[10px] text-brand-slate-600 bg-brand-slate-50 px-2 py-0.5 rounded border border-brand-slate-100">
-                      {sub.replace(' Glassware', '').replace(' Plasticwares', '').replace(' Filters', '')}
-                    </span>
-                  ))}
-                  {category.data.subcategories.length > 3 && (
-                    <span class="text-[10px] text-brand-slate-400 bg-transparent px-1 py-0.5">
-                      +{category.data.subcategories.length - 3} more
-                    </span>
-                  )}
+                {/* Card Subcategories Preview */}
+                <div class="border-t border-brand-slate-100 pt-5">
+                  <h4 class="text-[10px] uppercase font-bold tracking-widest text-brand-slate-400 mb-3">Sub-Categories Include</h4>
+                  <div class="flex flex-wrap gap-1.5">
+                    {category.data.subcategories.slice(0, 3).map((sub) => (
+                      <span class="text-[10px] text-brand-slate-600 bg-brand-slate-50 px-2 py-0.5 rounded border border-brand-slate-100">
+                        {getSubName(sub)}
+                      </span>
+                    ))}
+                    {category.data.subcategories.length > 3 && (
+                      <span class="text-[10px] text-brand-slate-400 bg-transparent px-1 py-0.5">
+                        +{category.data.subcategories.length - 3} more
+                      </span>
+                    )}
+                  </div>
                 </div>
-              </div>
 
-              <!-- Action Link visual indicator -->
-              <div class="flex items-center gap-1.5 text-xs font-semibold text-brand-steel-600 group-hover:text-brand-steel-700 mt-6 pt-2 border-t border-brand-slate-50/50">
-                <span>View Range Details</span>
-                <svg class="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </div>
-            </a>
+                {/* Action Link visual indicator */}
+                <div class="flex items-center gap-1.5 text-xs font-semibold text-brand-steel-600 group-hover:text-brand-steel-700 mt-6 pt-2 border-t border-brand-slate-50/50">
+                  <span>View Range Details</span>
+                  <svg class="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </div>
+              </a>
+            </article>
           );
         })}
       </div>

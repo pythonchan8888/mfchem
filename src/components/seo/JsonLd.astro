@@ -1,0 +1,14 @@
+---
+/**
+ * Reusable JSON-LD structured data component.
+ * Accepts any valid schema.org JSON-LD object and renders it as a <script> tag.
+ * Usage: <JsonLd data={schemaObject} />
+ */
+interface Props {
+  data: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const { data } = Astro.props;
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(data, null, 0)} />

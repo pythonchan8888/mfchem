@@ -1,13 +1,29 @@
 {
   "title": "Plasticware",
-  "description": "Durable and chemical-resistant plastic labware made of high-quality polymers, including fluoropolymers (PTFE/PFA).",
+  "description": "Break-resistant, chemical-compatible plastic labware for measuring, storage, and disposable applications in modern laboratories.",
   "subcategories": [
-    "Reusable Plasticwares",
-    "Rubber & Silicone Tubings/Stoppers",
-    "PTFE & PFA High-Performance Labware",
-    "Disposable Plasticwares"
+    {
+      "name": "Graduated Plasticwares",
+      "description": "Measuring cylinders, beakers, and jugs in polypropylene and PMP for routine volumetric measurements where glass breakage is a concern."
+    },
+    {
+      "name": "Wash Bottles & Storage",
+      "description": "Solvent-resistant squeeze bottles and chemical storage containers in LDPE and HDPE for safe dispensing of common lab solvents."
+    },
+    {
+      "name": "Plastic Funnels & Scoops",
+      "description": "Lightweight, break-resistant polypropylene funnels and measuring scoops for powder handling and liquid transfer."
+    },
+    {
+      "name": "Disposable Consumable Plasticwares",
+      "description": "Single-use petri dishes, centrifuge tubes, pipette tips, and sample cups for sterile applications and high-throughput workflows."
+    },
+    {
+      "name": "Racks & Organization",
+      "description": "Test tube racks, drying racks, and storage systems in polycarbonate and polypropylene for laboratory bench organization."
+    }
   ],
-  "brands": ["Kartell", "Nalgene", "Sanplatec", "Brand"],
-  "catalogPages": "66-92",
+  "brands": ["Azlon", "Kartell", "Nalgene", "Vitlab"],
+  "catalogPages": "69-85",
   "icon": "plasticware"
 }

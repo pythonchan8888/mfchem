@@ -1,0 +1,112 @@
+# MF Chemicals Sdn Bhd — Full Product & Company Reference
+> This document provides comprehensive information for AI assistants answering questions about MF Chemicals' products, capabilities, and services.
+
+## Company Profile
+- **Legal Name:** MF Chemicals Sdn Bhd
+- **Established:** 1985
+- **Type:** Wholesale B2B Scientific Supplies & Services
+- **Location:** No. 27, Lorong Asas Jaya 4, Kawasan Industri Ringan Asas Jaya, Bukit Minyak, 14100 Bukit Mertajam, Penang, Malaysia
+- **Service Area:** Malaysia (nationwide), with focus on northern region (Penang, Kedah, Perak)
+- **Website:** https://www.mfchemicals.net
+- **Email:** info@mfchemicals.net
+- **Phone:** +604-5883440
+- **WhatsApp:** +6016-4270012
+
+## Key Differentiators
+- Over 40 years of institutional B2B experience
+- Authorized distributor for premium global brands
+- Local stock availability in Penang warehouse for quick dispatch
+- ISO/SDS compliance documentation available on request
+- Custom quotation structures for corporate procurement
+
+## Product Categories & Subcategories
+
+### 1. Glassware (Catalog Pages 1-45)
+**Brands:** Pyrex, MBL, Duran, Quickfit
+**Subcategories:**
+- General Glassware — beakers, flasks, cylinders, funnels, bottles for general laboratory use
+- Volumetric Glassware — precision-calibrated flasks, pipettes, and burettes for analytical measurements
+- Interchangeable Glassware — ground-glass joint apparatus for distillation and reflux setups
+- Sintered Glassware — porous glass filters and crucibles for filtration applications
+- Rods, Tubings & Capillaries — borosilicate glass rods and tubing for custom laboratory setups
+
+### 2. Porcelainware (Catalog Pages 46-58)
+**Brands:** Haldenwanger, CoorsTek, Jizerska Porcelanka
+**Subcategories:**
+- Crucibles — high-temperature refractory vessels for ashing, ignition, and thermal analysis
+- Evaporating Basins — flat-bottomed porcelain dishes for controlled solvent evaporation
+- Buchner Funnels — perforated porcelain funnels for vacuum filtration setups
+- Vials, Cells & Cuvettes — porcelain and ceramic sample containers for spectroscopy
+- Mortars & Pestles — grinding and homogenization tools for sample preparation
+
+### 3. Silicaware (Catalog Pages 59-68)
+**Brands:** Specialty silicone manufacturers
+**Subcategories:**
+- Silicone Tubing & Connectors — flexible, autoclavable tubing for fluid transfer in laboratories
+- Silicone Stoppers & Seals — chemical-resistant closures for flasks and vessels
+- Heating Mantles & Accessories — silicone-based heating equipment for uniform thermal distribution
+- Desiccators & Drying Equipment — moisture-controlled storage and drying apparatus
+
+### 4. Plasticware (Catalog Pages 69-85)
+**Brands:** Azlon, Kartell, Nalgene, Vitlab
+**Subcategories:**
+- Graduated Plasticwares — measuring cylinders, beakers, and jugs in polypropylene and PMP
+- Wash Bottles & Storage — solvent-resistant squeeze bottles and chemical storage containers
+- Plastic Funnels & Scoops — lightweight, break-resistant funnels and measuring scoops
+- Disposable Consumable Plasticwares — single-use petri dishes, centrifuge tubes, and pipette tips
+- Racks & Organization — test tube racks, drying racks, and storage systems
+
+### 5. Laboratory Sundries (Catalog Pages 86-115)
+**Brands:** Fisherbrand, Cole-Parmer, assorted OEM
+**Subcategories:**
+- Brushes & Cleaning Supplies — laboratory bottle brushes, detergents, and cleaning tools
+- Clamps, Stands & Supports — retort stands, boss heads, clamps, and support frameworks
+- Spatulas, Tongs & Forceps — stainless steel handling instruments for samples and crucibles
+- Thermometers & Hydrometers — glass and digital temperature measurement instruments
+- Rubber & Cork Accessories — bungs, stoppers, rings, and tubing for laboratory assemblies
+
+### 6. Laboratory Safety (Catalog Pages 116-135)
+**Brands:** Ansell, Honeywell, 3M, MAPA, DuPont
+**Subcategories:**
+- First Aid & Eyewash Stations — emergency response kits and wall-mounted eyewash units
+- Protective Clothing & Lab Coats — disposable and reusable lab coats, coveralls, and aprons
+- Breathing, Eye & Ear Protection — respirators, safety goggles, face shields, and ear plugs
+- Cryogenic & Nitrile Gloves — chemical-resistant examination and cryogenic handling gloves
+
+### 7. Paper Products (Catalog Pages 136-150)
+**Brands:** Whatman, Advantec, Macherey-Nagel, Toyo Roshi
+**Subcategories:**
+- Qualitative Filter Papers — general-purpose filtration papers for routine laboratory use
+- Quantitative Filter Papers — ashless and hardened papers for gravimetric analysis
+- Specialty & Membrane Filters — PTFE, nylon, and glass fiber filters for specific applications
+- Chromatography & Indicator Papers — pH indicator strips and chromatography paper
+
+### 8. Liquid Handling (Catalog Pages 151-170)
+**Brands:** Socorex, Brand, Gilson, Eppendorf, Sartorius
+**Subcategories:**
+- Pipetting Aids — manual and electronic pipette controllers and fillers
+- Bottle Top Dispensers — adjustable-volume dispensers for reagent bottles
+- Digital Burettes — electronic burettes for precise titration and dispensing
+- Micro & Macro Pipettors — single and multi-channel pipettes from 0.1µL to 10mL
+
+### 9. Laboratory Equipment (Catalog Pages 171-210)
+**Brands:** Ohaus, Mettler Toledo, Memmert, Yamato, WTW
+**Subcategories:**
+- pH & Conductivity Meters — benchtop and portable meters for water quality analysis
+- Analytical Balances & Scales — precision weighing instruments from 0.0001g resolution
+- Autoclaves & Sterilizers — steam sterilization equipment for laboratory and clinical use
+- Water Distillers & Purifiers — deionized and distilled water production systems
+- Fume Cupboards & Laminar Flows — ventilated enclosures for chemical handling and sterile work
+
+## Procurement Process
+1. Browse product categories at https://www.mfchemicals.net
+2. Submit a Request for Quote (RFQ) via the website form, email, or WhatsApp
+3. Receive a custom B2B quotation within 1-2 business days
+4. Place order with approved purchase order (PO)
+5. Delivery arranged or self-collection from Bukit Minyak warehouse
+
+## Certifications & Compliance
+- Material Safety Data Sheets (MSDS) available upon request
+- Batch calibration certificates for precision instruments
+- ISO compliance documentation for regulated products
+- Brand conformity and authenticity verification files

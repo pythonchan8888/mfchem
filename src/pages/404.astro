@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Button from '../components/ui/Button.astro';
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+import { base } from '../utils/base';
 ---
 
 <Layout title="Page Not Found" description="The catalog page or resource you are looking for does not exist. Please return to the homepage or submit an inquiry to the MF Chemicals team.">

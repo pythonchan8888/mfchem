@@ -2,11 +2,26 @@
   "title": "Porcelainware",
   "description": "High-temperature refractory porcelain items including crucibles, basins, and funnels, suitable for extreme thermal analysis.",
   "subcategories": [
-    "Crucibles",
-    "Evaporating Basins",
-    "Buchner Funnels",
-    "Vials, Cells & Cuvettes",
-    "Mortars & Pestles"
+    {
+      "name": "Crucibles",
+      "description": "High-temperature refractory vessels for ashing, ignition, and thermal analysis. Rated for temperatures up to 1150°C."
+    },
+    {
+      "name": "Evaporating Basins",
+      "description": "Flat-bottomed porcelain dishes for controlled solvent evaporation, concentration, and crystallization procedures."
+    },
+    {
+      "name": "Buchner Funnels",
+      "description": "Perforated porcelain funnels designed for vacuum filtration setups, compatible with standard filter papers."
+    },
+    {
+      "name": "Vials, Cells & Cuvettes",
+      "description": "Porcelain and ceramic sample containers for spectroscopy, thermal analysis, and high-temperature sample storage."
+    },
+    {
+      "name": "Mortars & Pestles",
+      "description": "Glazed and unglazed porcelain grinding tools for sample preparation, homogenization, and particle size reduction."
+    }
   ],
   "brands": ["Haldenwanger", "CoorsTek", "Jizerska Porcelanka"],
   "catalogPages": "46-58",

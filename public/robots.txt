@@ -1,0 +1,14 @@
+# MF Chemicals — AI & Search Crawler Directives
+# https://www.mfchemicals.net
+
+User-agent: *
+Allow: /
+
+# Block build artifacts
+Disallow: /_astro/
+
+# Sitemap location
+Sitemap: https://www.mfchemicals.net/sitemap-index.xml
+
+# AI Crawler Directives
+# See also: /llms.txt and /llms-full.txt

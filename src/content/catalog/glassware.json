@@ -2,11 +2,26 @@
   "title": "Glassware",
   "description": "High-precision laboratory glassware designed for chemical resistance, thermal stability, and volumetric accuracy.",
   "subcategories": [
-    "General Glassware",
-    "Volumetric Glassware",
-    "Interchangeable Glassware",
-    "Sintered Glassware",
-    "Rods, Tubings & Capillaries"
+    {
+      "name": "General Glassware",
+      "description": "Beakers, flasks, cylinders, funnels, and bottles for general laboratory use. Available in borosilicate and soda-lime glass."
+    },
+    {
+      "name": "Volumetric Glassware",
+      "description": "Precision-calibrated flasks, pipettes, and burettes for analytical measurements requiring Class A or Class B accuracy."
+    },
+    {
+      "name": "Interchangeable Glassware",
+      "description": "Ground-glass joint apparatus for distillation, reflux, and extraction setups. Standard taper joints ensure leak-free connections."
+    },
+    {
+      "name": "Sintered Glassware",
+      "description": "Porous glass filters, crucibles, and funnels with sintered discs for vacuum and gravity filtration applications."
+    },
+    {
+      "name": "Rods, Tubings & Capillaries",
+      "description": "Borosilicate glass rods, tubing, and capillary tubes for custom laboratory setups, flame-working, and micro-sampling."
+    }
   ],
   "brands": ["Pyrex", "MBL", "Duran", "Quickfit"],
   "catalogPages": "1-45",

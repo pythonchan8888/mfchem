@@ -2,10 +2,22 @@
   "title": "Laboratory Safety",
   "description": "Premium personal protective equipment (PPE) and containment supplies to maintain regulatory compliance and lab safety.",
   "subcategories": [
-    "First Aid & Eyewash Stations",
-    "Protective Clothing & Lab Coats",
-    "Breathing, Eye & Ear Protection",
-    "Cryogenic & Nitrile Gloves"
+    {
+      "name": "First Aid & Eyewash Stations",
+      "description": "Emergency response kits, wall-mounted eyewash units, and safety showers for immediate decontamination in chemical spill incidents."
+    },
+    {
+      "name": "Protective Clothing & Lab Coats",
+      "description": "Disposable and reusable lab coats, coveralls, and chemical-resistant aprons meeting OSHA and local safety standards."
+    },
+    {
+      "name": "Breathing, Eye & Ear Protection",
+      "description": "Half-face and full-face respirators, chemical splash goggles, face shields, and hearing protection for hazardous environments."
+    },
+    {
+      "name": "Cryogenic & Nitrile Gloves",
+      "description": "Examination-grade nitrile gloves, chemical-resistant heavy-duty gloves, and insulated cryogenic gloves for liquid nitrogen handling."
+    }
   ],
   "brands": ["Ansell", "Honeywell", "3M", "MAPA", "DuPont"],
   "catalogPages": "116-135",

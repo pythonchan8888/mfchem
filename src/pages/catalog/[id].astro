@@ -2,17 +2,8 @@
 import Layout from '../../layouts/Layout.astro';
 import InquirePanel from '../../components/catalog/InquirePanel.astro';
 import { getCollection } from 'astro:content';
-
-// Import Icons for mapping
-import GlasswareIcon from '../../components/icons/GlasswareIcon.astro';
-import PorcelainwareIcon from '../../components/icons/PorcelainwareIcon.astro';
-import SilicawareIcon from '../../components/icons/SilicawareIcon.astro';
-import PlasticwareIcon from '../../components/icons/PlasticwareIcon.astro';
-import SundriesIcon from '../../components/icons/SundriesIcon.astro';
-import SafetyIcon from '../../components/icons/SafetyIcon.astro';
-import PaperIcon from '../../components/icons/PaperIcon.astro';
-import LiquidIcon from '../../components/icons/LiquidIcon.astro';
-import EquipmentIcon from '../../components/icons/EquipmentIcon.astro';
+import { iconMap, type CategoryIconKey } from '../../utils/icons';
+import { base } from '../../utils/base';
 
 // Dynamic static paths for 9 categories
 export async function getStaticPaths() {
@@ -26,47 +17,95 @@ export async function getStaticPaths() {
 const { category } = Astro.props;
 const { title, description, subcategories, brands, catalogPages, icon } = category.data;
 
-// Dynamic icon lookup map
-const iconMap = {
-  glassware: GlasswareIcon,
-  porcelainware: PorcelainwareIcon,
-  silicaware: SilicawareIcon,
-  plasticware: PlasticwareIcon,
-  sundries: SundriesIcon,
-  safety: SafetyIcon,
-  paper: PaperIcon,
-  liquid: LiquidIcon,
-  equipment: EquipmentIcon,
-};
+const IconComponent = iconMap[icon as CategoryIconKey];
 
-const IconComponent = iconMap[icon as keyof typeof iconMap];
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+// Helper: extract subcategory name regardless of format (string or object)
+const getSubName = (sub: string | { name: string; description: string }) =>
+  typeof sub === 'string' ? sub : sub.name;
+
+// Helper: extract subcategory description (or generate a default)
+const getSubDescription = (sub: string | { name: string; description: string }) =>
+  typeof sub === 'string'
+    ? `Premium ${sub} from brands like ${brands.join(', ')}. Available through MF Chemicals Penang.`
+    : sub.description;
+
+// Build page-specific JSON-LD: BreadcrumbList + Product/ItemList
+const catalogPageJsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": `${Astro.site}`
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Catalog",
+        "item": `${Astro.site}catalog`
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": title,
+        "item": `${new URL(`${base}/catalog/${category.id}`, Astro.site)}`
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": `${title} — MF Chemicals Product Range`,
+    "description": description,
+    "numberOfItems": subcategories.length,
+    "itemListElement": subcategories.map((sub, idx) => ({
+      "@type": "ListItem",
+      "position": idx + 1,
+      "name": getSubName(sub),
+      "description": getSubDescription(sub),
+    })),
+    "provider": {
+      "@type": "Organization",
+      "name": "MF Chemicals Sdn Bhd",
+      "url": "https://www.mfchemicals.net"
+    }
+  }
+];
+
+const pageDescription = `MF Chemicals Penang (Est. 1985) - View our high-quality range of ${title} products including subcategories, representative brands: ${brands.join(', ')}.`;
 ---
 
 <Layout 
   title={title} 
-  description={`MF Chemicals Penang (Est. 1985) - View our high-quality range of ${title} products including subcategories, representative brands: ${brands.join(', ')}.`}
+  description={pageDescription}
+  jsonLd={catalogPageJsonLd}
 >
   <div class="bg-brand-slate-50 min-h-screen py-6 md:py-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Breadcrumbs -->
       <nav class="flex mb-8 text-xs font-semibold text-brand-slate-400 select-none" aria-label="Breadcrumb">
-        <ol class="inline-flex items-center space-x-1 md:space-x-2">
-          <li class="inline-flex items-center">
-            <a href={`${base}/`} class="hover:text-brand-slate-700 transition-colors">Home</a>
+        <ol class="inline-flex items-center space-x-1 md:space-x-2" itemscope itemtype="https://schema.org/BreadcrumbList">
+          <li class="inline-flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a href={`${base}/`} class="hover:text-brand-slate-700 transition-colors" itemprop="item"><span itemprop="name">Home</span></a>
+            <meta itemprop="position" content="1" />
           </li>
-          <li class="flex items-center">
+          <li class="flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
             <svg class="w-3 h-3 mx-1.5 text-brand-slate-300" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
             </svg>
-            <span class="text-brand-slate-400">Catalog</span>
+            <span class="text-brand-slate-400" itemprop="name">Catalog</span>
+            <meta itemprop="position" content="2" />
           </li>
-          <li class="flex items-center" aria-current="page">
+          <li class="flex items-center" aria-current="page" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
             <svg class="w-3 h-3 mx-1.5 text-brand-slate-300" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
             </svg>
-            <span class="text-brand-slate-700">{title}</span>
+            <span class="text-brand-slate-700" itemprop="name">{title}</span>
+            <meta itemprop="position" content="3" />
           </li>
         </ol>
       </nav>
@@ -100,9 +139,11 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
           <div class="p-6 md:p-8 md:w-[40%] flex justify-center items-center w-full bg-brand-slate-50/50 md:bg-transparent border-t md:border-t-0 md:border-l border-brand-slate-100/80">
             <img 
               src={`${base}/images/banners/${category.id}.png`} 
-              alt={`${title} banner showcase`}
+              alt={`${title} products — laboratory ${title.toLowerCase()} including ${subcategories.slice(0, 3).map(s => getSubName(s).toLowerCase()).join(', ')} from brands like ${brands.slice(0, 2).join(' and ')}`}
               class="w-full max-w-[280px] md:max-w-full h-auto aspect-square object-contain rounded-lg border border-brand-slate-200/40 shadow-sm"
               loading="eager"
+              width="400"
+              height="400"
             />
           </div>
         </div>
@@ -115,7 +156,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         <div class="lg:col-span-2 space-y-10">
           
           <!-- Sub-Categories Listing -->
-          <div class="bg-white border border-brand-slate-200/80 rounded-xl p-6 md:p-8 shadow-premium">
+          <article class="bg-white border border-brand-slate-200/80 rounded-xl p-6 md:p-8 shadow-premium">
             <h2 class="text-base font-bold text-brand-slate-900 border-b border-brand-slate-100 pb-4 mb-6 tracking-tight">
               Detailed Product Ranges
             </h2>
@@ -127,18 +168,18 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
                     {String(idx + 1).padStart(2, '0')}
                   </div>
                   <div class="space-y-1">
-                    <h3 class="text-sm font-bold text-brand-slate-800">{sub}</h3>
+                    <h3 class="text-sm font-bold text-brand-slate-800">{getSubName(sub)}</h3>
                     <p class="text-xs text-brand-slate-500 leading-relaxed">
-                      Sourced from industry-certified partners. Compliant with standard laboratory protocols, including visual inspections, chemical inertness, and tolerance validation files.
+                      {getSubDescription(sub)}
                     </p>
                   </div>
                 </div>
               ))}
             </div>
-          </div>
+          </article>
 
           <!-- Brands Representation Section -->
-          <div class="bg-white border border-brand-slate-200/80 rounded-xl p-6 md:p-8 shadow-premium">
+          <article class="bg-white border border-brand-slate-200/80 rounded-xl p-6 md:p-8 shadow-premium">
             <h2 class="text-base font-bold text-brand-slate-900 border-b border-brand-slate-100 pb-4 mb-6 tracking-tight">
               Represented Premium Brands
             </h2>
@@ -154,7 +195,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
                 </div>
               ))}
             </div>
-          </div>
+          </article>
 
           <!-- B2B Procurement notes -->
           <div class="bg-brand-slate-900 text-white rounded-xl p-6 md:p-8 shadow-premium flex flex-col md:flex-row items-center justify-between gap-6">
@@ -172,9 +213,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         </div>
 
         <!-- Sidebar Column (30%) -->
-        <div class="lg:col-span-1">
+        <aside class="lg:col-span-1">
           <InquirePanel categoryTitle={title} />
-        </div>
+        </aside>
 
       </div>
 

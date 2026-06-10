@@ -2,11 +2,26 @@
   "title": "Laboratory Equipment",
   "description": "Analytical instrumentation and heavy hardware including meters, scales, sterilization units, and safety enclosures.",
   "subcategories": [
-    "pH & Conductivity Meters",
-    "Analytical Balances & Scales",
-    "Autoclaves & Sterilizers",
-    "Water Distillers & Purifiers",
-    "Fume Cupboards & Laminar Flows"
+    {
+      "name": "pH & Conductivity Meters",
+      "description": "Benchtop and portable meters for water quality analysis, environmental monitoring, and process control in industrial and research labs."
+    },
+    {
+      "name": "Analytical Balances & Scales",
+      "description": "Precision weighing instruments from 0.0001 g readability for analytical chemistry to 30 kg capacity for bulk material weighing."
+    },
+    {
+      "name": "Autoclaves & Sterilizers",
+      "description": "Steam sterilization equipment for laboratory, clinical, and pharmaceutical use. Vertical and horizontal models available."
+    },
+    {
+      "name": "Water Distillers & Purifiers",
+      "description": "Deionized and distilled water production systems delivering Type I, II, and III water quality for sensitive analytical applications."
+    },
+    {
+      "name": "Fume Cupboards & Laminar Flows",
+      "description": "Ducted and ductless fume hoods for chemical handling, plus vertical and horizontal laminar flow cabinets for sterile work environments."
+    }
   ],
   "brands": ["Ohaus", "Mettler Toledo", "Memmert", "Yamato", "WTW"],
   "catalogPages": "171-210",

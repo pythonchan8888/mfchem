@@ -1,14 +1,29 @@
 {
   "title": "Laboratory Sundries",
-  "description": "Essential laboratory support hardware, clamps, stands, tools, and heating instruments for daily experimental setups.",
+  "description": "Essential laboratory consumables, accessories, and support equipment including cleaning supplies, clamps, thermometers, and handling tools.",
   "subcategories": [
-    "Stands & Fittings",
-    "Forceps, Tongs & Spatulas",
-    "Scissors & Blades",
-    "Laboratory Jacks",
-    "Burners & Gas Accessories"
+    {
+      "name": "Brushes & Cleaning Supplies",
+      "description": "Laboratory bottle brushes, test tube brushes, and specialist detergents for thorough cleaning of glassware and instruments."
+    },
+    {
+      "name": "Clamps, Stands & Supports",
+      "description": "Retort stands, boss heads, burette clamps, and support frameworks in cast iron and stainless steel for apparatus assembly."
+    },
+    {
+      "name": "Spatulas, Tongs & Forceps",
+      "description": "Stainless steel spatulas, crucible tongs, and precision forceps for handling samples, crucibles, and hot objects safely."
+    },
+    {
+      "name": "Thermometers & Hydrometers",
+      "description": "Mercury-free glass thermometers, digital temperature probes, and specific gravity hydrometers for accurate measurements."
+    },
+    {
+      "name": "Rubber & Cork Accessories",
+      "description": "Rubber bungs, cork stoppers, O-rings, and flexible tubing for sealing, connecting, and assembling laboratory apparatus."
+    }
   ],
-  "brands": ["Usbeck", "Jaytec", "Bochem", "Haldenwanger"],
-  "catalogPages": "93-115",
+  "brands": ["Fisherbrand", "Cole-Parmer", "Bochem"],
+  "catalogPages": "86-115",
   "icon": "sundries"
 }

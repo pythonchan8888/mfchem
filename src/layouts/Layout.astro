@@ -6,6 +6,8 @@ import '@fontsource/inter/600.css';
 import '@fontsource/inter/700.css';
 import '../styles/global.css';
 import InquiryModal from '../components/ui/InquiryModal.astro';
+import JsonLd from '../components/seo/JsonLd.astro';
+import { base } from '../utils/base';
 
 
 interface Props {
@@ -13,17 +15,55 @@ interface Props {
   description?: string;
   ogType?: string;
   id?: string;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 const { 
   title, 
   description = "MF Chemicals - Premium B2B Scientific Supplies & Labware services since 1985. Based in Penang, Malaysia.", 
   ogType = "website",
-  id = ""
+  id = "",
+  jsonLd,
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, 'https://www.mfchemicals.net');
-const base = import.meta.env.BASE_URL.replace(/\/$/, ''); // e.g. '/mfchem' or ''
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+// Sitewide Organization structured data
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "MF Chemicals Sdn Bhd",
+  "alternateName": "MF Chemicals",
+  "url": "https://www.mfchemicals.net",
+  "logo": `${new URL(`${base}/images/logo-icon.png`, Astro.site)}`,
+  "description": "Wholesale B2B supplier of institutional-grade scientific labware, laboratory equipment, and consumable supplies. Established 1985 in Penang, Malaysia.",
+  "foundingDate": "1985",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "No. 27, Lorong Asas Jaya 4, Kawasan Industri Ringan Asas Jaya",
+    "addressLocality": "Bukit Minyak, Bukit Mertajam",
+    "addressRegion": "Penang",
+    "postalCode": "14100",
+    "addressCountry": "MY"
+  },
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "+604-5883440",
+      "contactType": "sales",
+      "areaServed": "MY",
+      "availableLanguage": ["English", "Malay", "Chinese"]
+    },
+    {
+      "@type": "ContactPoint",
+      "telephone": "+6016-4270012",
+      "contactType": "customer service",
+      "areaServed": "MY",
+      "contactOption": "https://wa.me/60164270012"
+    }
+  ],
+  "sameAs": []
+};
 ---
 
 <!doctype html>
@@ -34,11 +74,25 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, ''); // e.g. '/mfchem' or '
     <link rel="icon" type="image/png" href={`${base}/images/logo-icon.png`} />
     <meta name="generator" content={Astro.generator} />
     
+    <!-- Google Search Console Verification -->
+    <meta name="google-site-verification" content="r9icCZEU9vZLgLmcHD_nmaSXk3MA_6ejFXa8y3Yq1sQ" />
+
+    <!-- Font Preload (LCP optimization) -->
+    <link rel="preload" href="/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+
     <!-- Primary Meta Tags -->
     <title>{title} | MF Chemicals 2.0</title>
     <meta name="title" content={`${title} | MF Chemicals 2.0`} />
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
+
+    <!-- Geo-Targeting & Language -->
+    <link rel="alternate" hreflang="en-MY" href={canonicalURL} />
+    <link rel="alternate" hreflang="en" href={canonicalURL} />
+    <meta name="geo.region" content="MY-07" />
+    <meta name="geo.placename" content="Bukit Minyak, Penang" />
+    <meta name="geo.position" content="5.3299;100.4587" />
+    <meta name="ICBM" content="5.3299, 100.4587" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content={ogType} />
@@ -48,6 +102,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, ''); // e.g. '/mfchem' or '
     <meta property="og:image" content={`${new URL(`${base}/images/og-social-preview.png`, Astro.site)}`} />
     <meta property="og:image:width" content="1024" />
     <meta property="og:image:height" content="1024" />
+    <meta property="og:locale" content="en_MY" />
+    <meta property="og:site_name" content="MF Chemicals" />
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -56,12 +112,16 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, ''); // e.g. '/mfchem' or '
     <meta name="twitter:image" content={`${new URL(`${base}/images/og-social-preview.png`, Astro.site)}`} />
     
     <!-- Additional SEO tags -->
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="author" content="MF Chemicals Sdn Bhd" />
+    <meta name="theme-color" content="#0f172a" />
+
+    <!-- AI Content Declaration -->
+    <meta name="ai-content-declaration" content="B2B laboratory supplies catalog — MF Chemicals Sdn Bhd, Penang, Malaysia" />
   </head>
   <body class="overflow-x-hidden">
     <!-- Quick Contact Header -->
-    <div class="bg-brand-slate-950 text-brand-slate-300 text-xs py-2 px-4 md:px-8 border-b border-brand-slate-800 transition-colors">
+    <div class="bg-brand-slate-950 text-brand-slate-300 text-xs py-2 px-4 md:px-8 border-b border-brand-slate-800 transition-colors" role="banner">
       <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
         <div class="flex items-center gap-4">
           <span class="flex items-center gap-1">
@@ -85,6 +145,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, ''); // e.g. '/mfchem' or '
             src={`${base}/images/logo-icon.png`} 
             alt="MF Chemicals logo icon" 
             class="h-11 w-auto object-contain transition-opacity group-hover:opacity-90"
+            width="44"
+            height="44"
           />
           <div class="flex flex-col">
             <span class="text-lg font-bold tracking-tight text-brand-slate-900 group-hover:text-brand-slate-700 transition-colors leading-none">
@@ -97,28 +159,28 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, ''); // e.g. '/mfchem' or '
         </a>
 
         <!-- Desktop Navigation -->
-        <nav class="hidden md:flex items-center gap-8">
-          <a href={`${base}/`} class="text-sm font-medium text-brand-slate-600 hover:text-brand-steel-600 transition-colors duration-200">
+        <nav class="hidden md:flex items-center gap-8" aria-label="Main navigation">
+          <a href={`${base}/`} class="text-sm font-medium text-brand-slate-600 hover:text-brand-steel-600 transition-colors duration-200" aria-current={Astro.url.pathname === '/' ? 'page' : undefined}>
             Home
           </a>
           <div class="relative group">
-            <button class="flex items-center gap-1 text-sm font-medium text-brand-slate-600 hover:text-brand-steel-600 transition-colors duration-200 py-2">
+            <button class="flex items-center gap-1 text-sm font-medium text-brand-slate-600 hover:text-brand-steel-600 transition-colors duration-200 py-2" aria-expanded="false" aria-haspopup="true">
               Categories
               <svg class="w-4 h-4 text-brand-slate-400 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
-            <div class="absolute right-0 top-full w-72 bg-white border border-brand-slate-200 rounded-lg shadow-premium opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200 z-50 p-2">
+            <div class="absolute right-0 top-full w-72 bg-white border border-brand-slate-200 rounded-lg shadow-premium opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200 z-50 p-2" role="menu">
               <div class="grid gap-1">
-                <a href={`${base}/catalog/glassware`} class="px-3 py-2 text-xs font-medium text-brand-slate-700 hover:bg-brand-steel-50 hover:text-brand-steel-700 rounded-md transition-colors">1. Glassware</a>
-                <a href={`${base}/catalog/porcelainware`} class="px-3 py-2 text-xs font-medium text-brand-slate-700 hover:bg-brand-steel-50 hover:text-brand-steel-700 rounded-md transition-colors">2. Porcelainware</a>
-                <a href={`${base}/catalog/silicaware`} class="px-3 py-2 text-xs font-medium text-brand-slate-700 hover:bg-brand-steel-50 hover:text-brand-steel-700 rounded-md transition-colors">3. Silicaware</a>
-                <a href={`${base}/catalog/plasticware`} class="px-3 py-2 text-xs font-medium text-brand-slate-700 hover:bg-brand-steel-50 hover:text-brand-steel-700 rounded-md transition-colors">4. Plasticware</a>
-                <a href={`${base}/catalog/sundries`} class="px-3 py-2 text-xs font-medium text-brand-slate-700 hover:bg-brand-steel-50 hover:text-brand-steel-700 rounded-md transition-colors">5. Laboratory Sundries</a>
-                <a href={`${base}/catalog/safety`} class="px-3 py-2 text-xs font-medium text-brand-slate-700 hover:bg-brand-steel-50 hover:text-brand-steel-700 rounded-md transition-colors">6. Laboratory Safety</a>
-                <a href={`${base}/catalog/paper`} class="px-3 py-2 text-xs font-medium text-brand-slate-700 hover:bg-brand-steel-50 hover:text-brand-steel-700 rounded-md transition-colors">7. Paper Products</a>
-                <a href={`${base}/catalog/liquid`} class="px-3 py-2 text-xs font-medium text-brand-slate-700 hover:bg-brand-steel-50 hover:text-brand-steel-700 rounded-md transition-colors">8. Liquid Handling</a>
-                <a href={`${base}/catalog/equipment`} class="px-3 py-2 text-xs font-medium text-brand-slate-700 hover:bg-brand-steel-50 hover:text-brand-steel-700 rounded-md transition-colors">9. Laboratory Equipment</a>
+                <a href={`${base}/catalog/glassware`} class="px-3 py-2 text-xs font-medium text-brand-slate-700 hover:bg-brand-steel-50 hover:text-brand-steel-700 rounded-md transition-colors" role="menuitem">1. Glassware</a>
+                <a href={`${base}/catalog/porcelainware`} class="px-3 py-2 text-xs font-medium text-brand-slate-700 hover:bg-brand-steel-50 hover:text-brand-steel-700 rounded-md transition-colors" role="menuitem">2. Porcelainware</a>
+                <a href={`${base}/catalog/silicaware`} class="px-3 py-2 text-xs font-medium text-brand-slate-700 hover:bg-brand-steel-50 hover:text-brand-steel-700 rounded-md transition-colors" role="menuitem">3. Silicaware</a>
+                <a href={`${base}/catalog/plasticware`} class="px-3 py-2 text-xs font-medium text-brand-slate-700 hover:bg-brand-steel-50 hover:text-brand-steel-700 rounded-md transition-colors" role="menuitem">4. Plasticware</a>
+                <a href={`${base}/catalog/sundries`} class="px-3 py-2 text-xs font-medium text-brand-slate-700 hover:bg-brand-steel-50 hover:text-brand-steel-700 rounded-md transition-colors" role="menuitem">5. Laboratory Sundries</a>
+                <a href={`${base}/catalog/safety`} class="px-3 py-2 text-xs font-medium text-brand-slate-700 hover:bg-brand-steel-50 hover:text-brand-steel-700 rounded-md transition-colors" role="menuitem">6. Laboratory Safety</a>
+                <a href={`${base}/catalog/paper`} class="px-3 py-2 text-xs font-medium text-brand-slate-700 hover:bg-brand-steel-50 hover:text-brand-steel-700 rounded-md transition-colors" role="menuitem">7. Paper Products</a>
+                <a href={`${base}/catalog/liquid`} class="px-3 py-2 text-xs font-medium text-brand-slate-700 hover:bg-brand-steel-50 hover:text-brand-steel-700 rounded-md transition-colors" role="menuitem">8. Liquid Handling</a>
+                <a href={`${base}/catalog/equipment`} class="px-3 py-2 text-xs font-medium text-brand-slate-700 hover:bg-brand-steel-50 hover:text-brand-steel-700 rounded-md transition-colors" role="menuitem">9. Laboratory Equipment</a>
               </div>
             </div>
           </div>
@@ -128,14 +190,14 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, ''); // e.g. '/mfchem' or '
         </nav>
 
         <!-- Mobile Menu Toggle Button -->
-        <button id="mobile-menu-toggle" class="md:hidden p-2 text-brand-slate-600 hover:text-brand-slate-950 focus:outline-none transition-colors" aria-label="Toggle menu">
+        <button id="mobile-menu-toggle" class="md:hidden p-2 text-brand-slate-600 hover:text-brand-slate-950 focus:outline-none transition-colors" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
           <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path id="hamburger-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
       </div>
 
-      <div id="mobile-menu" class="hidden md:hidden border-t border-brand-slate-100 bg-white">
+      <div id="mobile-menu" class="hidden md:hidden border-t border-brand-slate-100 bg-white" role="navigation" aria-label="Mobile navigation">
         <div class="px-4 pt-2 pb-6 space-y-3">
           <a href={`${base}/`} class="block px-3 py-2.5 text-sm font-medium text-brand-slate-700 hover:bg-brand-slate-50 rounded-md">Home</a>
           <div class="px-3 py-1 text-xs font-bold text-brand-slate-400 uppercase tracking-widest">Categories</div>
@@ -160,12 +222,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, ''); // e.g. '/mfchem' or '
     </header>
 
     <!-- Main Content Area -->
-    <main class="flex-grow">
+    <main class="flex-grow" role="main">
       <slot />
     </main>
 
     <!-- Global Footer -->
-    <footer class="bg-brand-slate-950 text-brand-slate-400 border-t border-brand-slate-900 pt-16 pb-8 px-4 md:px-8">
+    <footer class="bg-brand-slate-950 text-brand-slate-400 border-t border-brand-slate-900 pt-16 pb-8 px-4 md:px-8" role="contentinfo">
       <div class="max-w-7xl mx-auto">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-12">
           <!-- Corporate Column -->
@@ -175,6 +237,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, ''); // e.g. '/mfchem' or '
                 src={`${base}/images/logo-icon.png`} 
                 alt="MF Chemicals logo icon" 
                 class="h-8 w-auto object-contain transition-opacity group-hover:opacity-90"
+                width="32"
+                height="32"
               />
               <div class="flex flex-col">
                 <span class="text-sm font-bold tracking-tight text-white leading-tight">
@@ -194,7 +258,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, ''); // e.g. '/mfchem' or '
           </div>
 
           <!-- Quick Navigation -->
-          <div class="flex flex-col space-y-4">
+          <nav class="flex flex-col space-y-4" aria-label="Footer category links">
             <h3 class="text-white font-semibold text-sm tracking-widest uppercase text-left">Category Links</h3>
             <div class="grid grid-cols-2 gap-x-4 gap-y-2 text-xs">
               <a href={`${base}/catalog/glassware`} class="hover:text-brand-amber-300 transition-colors">Glassware</a>
@@ -207,12 +271,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, ''); // e.g. '/mfchem' or '
               <a href={`${base}/catalog/liquid`} class="hover:text-brand-amber-300 transition-colors">Liquid Handling</a>
               <a href={`${base}/catalog/equipment`} class="hover:text-brand-amber-300 transition-colors">Laboratory Equipment</a>
             </div>
-          </div>
+          </nav>
 
           <!-- Contact & Location Column -->
           <div class="flex flex-col space-y-4">
             <h3 class="text-white font-semibold text-sm tracking-widest uppercase">Penang Office & Warehouse</h3>
-            <div class="flex flex-col space-y-2 text-xs leading-relaxed">
+            <address class="flex flex-col space-y-2 text-xs leading-relaxed not-italic">
               <p class="text-brand-slate-300">
                 No. 27, Lorong Asas Jaya 4,<br />
                 Kawasan Industri Ringan Asas Jaya,<br />
@@ -230,12 +294,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, ''); // e.g. '/mfchem' or '
                   <span class="text-brand-slate-600">Email:</span>
                   <a href="mailto:info@mfchemicals.net" class="hover:text-white transition-colors">info@mfchemicals.net</a>
                 </span>
-                <span class="flex items-center gap-2">
-                  <span class="text-brand-slate-600">Alt:</span>
-                  <a href="mailto:info@mfchemicals.net" class="hover:text-white transition-colors">info@mfchemicals.net</a>
-                </span>
               </div>
-            </div>
+            </address>
           </div>
         </div>
 
@@ -247,6 +307,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, ''); // e.g. '/mfchem' or '
 
     <!-- Global Inquiry Modal -->
     <InquiryModal />
+
+    <!-- Sitewide Organization Schema -->
+    <JsonLd data={organizationSchema} />
+
+    <!-- Page-specific JSON-LD (passed from individual pages) -->
+    {jsonLd && <JsonLd data={jsonLd} />}
 
     <!-- Vanilla Script for Menu Toggle and Dialog triggers -->
     <script>
@@ -261,9 +327,11 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, ''); // e.g. '/mfchem' or '
           if (isHidden) {
             mobileMenu.classList.remove('hidden');
             hamburgerIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12'); // X icon
+            toggleBtn.setAttribute('aria-expanded', 'true');
           } else {
             mobileMenu.classList.add('hidden');
             hamburgerIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16'); // Hamburger icon
+            toggleBtn.setAttribute('aria-expanded', 'false');
           }
         });
       }

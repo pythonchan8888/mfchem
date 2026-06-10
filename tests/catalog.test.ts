@@ -48,8 +48,15 @@ describe('Catalog Flat-File Integrity Tests', () => {
       expect(Array.isArray(content.subcategories)).toBe(true);
       expect(content.subcategories.length).toBeGreaterThan(0);
       content.subcategories.forEach((sub: any) => {
-        expect(typeof sub).toBe('string');
-        expect(sub.length).toBeGreaterThan(0);
+        if (typeof sub === 'string') {
+          expect(sub.length).toBeGreaterThan(0);
+        } else {
+          expect(typeof sub).toBe('object');
+          expect(typeof sub.name).toBe('string');
+          expect(sub.name.length).toBeGreaterThan(0);
+          expect(typeof sub.description).toBe('string');
+          expect(sub.description.length).toBeGreaterThan(0);
+        }
       });
 
       // Validate brands array

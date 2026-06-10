@@ -1,13 +1,25 @@
 {
   "title": "Paper Products",
-  "description": "High-purity filtration media, cellulose papers, microfibre filters, and membrane filtration devices for standard analysis.",
+  "description": "Laboratory-grade filter papers, chromatography sheets, and indicator papers from leading manufacturers for analytical and preparative work.",
   "subcategories": [
-    "Qualitative & Quantitative Filter Papers",
-    "Glass Microfibre Filters",
-    "Syringe & Membrane Filters",
-    "Chromatography Papers"
+    {
+      "name": "Qualitative Filter Papers",
+      "description": "General-purpose cellulose filter papers for routine gravity and vacuum filtration in qualitative analysis workflows."
+    },
+    {
+      "name": "Quantitative Filter Papers",
+      "description": "Ashless and hardened filter papers for gravimetric analysis where minimal residue after ignition is critical."
+    },
+    {
+      "name": "Specialty & Membrane Filters",
+      "description": "PTFE, nylon, glass fiber, and mixed cellulose ester membrane filters for HPLC sample prep, air monitoring, and microbiological analysis."
+    },
+    {
+      "name": "Chromatography & Indicator Papers",
+      "description": "pH indicator strips, universal indicator papers, and chromatography sheets for quick chemical identification and separation."
+    }
   ],
-  "brands": ["Whatman", "Advantec", "Macherey-Nagel", "Sartorius"],
+  "brands": ["Whatman", "Advantec", "Macherey-Nagel", "Toyo Roshi"],
   "catalogPages": "136-150",
   "icon": "paper"
 }

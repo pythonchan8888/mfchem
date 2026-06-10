@@ -2,10 +2,22 @@
   "title": "Liquid Handling",
   "description": "Ergonomic volumetric liquid handling instruments, pipettors, and dispensers designed for precise fluid delivery.",
   "subcategories": [
-    "Pipetting Aids",
-    "Bottle Top Dispensers",
-    "Digital Burettes",
-    "Micro & Macro Pipettors"
+    {
+      "name": "Pipetting Aids",
+      "description": "Manual and electronic pipette controllers, fillers, and safety aspirators for comfortable and controlled pipette operation."
+    },
+    {
+      "name": "Bottle Top Dispensers",
+      "description": "Adjustable-volume dispensers that mount directly on reagent bottles for safe, repetitive dispensing of acids, bases, and solvents."
+    },
+    {
+      "name": "Digital Burettes",
+      "description": "Electronic burettes with digital displays for precise titration, offering accuracy to 0.01 mL and data logging capabilities."
+    },
+    {
+      "name": "Micro & Macro Pipettors",
+      "description": "Single and multi-channel pipettes covering volumes from 0.1 µL to 10 mL, with ergonomic designs for high-throughput pipetting."
+    }
   ],
   "brands": ["Socorex", "Brand", "Gilson", "Eppendorf", "Sartorius"],
   "catalogPages": "151-170",
