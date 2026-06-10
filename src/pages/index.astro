@@ -101,9 +101,9 @@ const homepageJsonLd = [
         <Button href="#categories-grid" variant="primary" size="lg" class="shadow-sm !bg-brand-steel-600 hover:!bg-brand-steel-700">
           Browse Categories
         </Button>
-        <button id="open-rfq-hero" class="inline-flex items-center justify-center px-7 py-3 text-sm md:text-base font-semibold rounded-md border border-brand-slate-300 bg-transparent text-brand-slate-700 hover:bg-brand-slate-50 hover:text-brand-slate-950 focus:ring-2 focus:ring-brand-slate-100 active:bg-brand-slate-100 transition-all duration-200 shadow-sm">
+        <a href={`${base}/quote`} class="inline-flex items-center justify-center px-7 py-3 text-sm md:text-base font-semibold rounded-md border border-brand-slate-300 bg-transparent text-brand-slate-700 hover:bg-brand-slate-50 hover:text-brand-slate-950 focus:ring-2 focus:ring-brand-slate-100 active:bg-brand-slate-100 transition-all duration-200 shadow-sm">
           Request RFQ / Pricing
-        </button>
+        </a>
       </div>
     </div>
   </section>
@@ -205,6 +205,52 @@ const homepageJsonLd = [
     </div>
   </section>
 
+  <!-- About Teaser -->
+  <section class="py-16 md:py-24 bg-white border-b border-brand-slate-100">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="order-2 lg:order-1 flex justify-center">
+          <div class="relative w-full max-w-sm">
+            <div class="aspect-square bg-brand-slate-100 rounded-2xl overflow-hidden border border-brand-slate-200 shadow-premium flex items-center justify-center">
+              <img 
+                src={`${base}/images/logo-stacked.png`} 
+                alt="MF Chemicals logo" 
+                class="w-40 h-auto object-contain"
+                width="160"
+                height="160"
+              />
+            </div>
+            <div class="absolute -bottom-2 -right-2 bg-brand-steel-600 text-white rounded-lg px-3 py-1.5 shadow-premium text-xs font-bold">
+              Est. 1985
+            </div>
+          </div>
+        </div>
+        <div class="order-1 lg:order-2 space-y-5">
+          <div>
+            <span class="text-[10px] uppercase font-bold tracking-widest text-brand-steel-600">Our Story</span>
+            <h2 class="text-2xl md:text-3xl font-bold text-brand-slate-900 tracking-tight mt-2">Family-Run Since 1985</h2>
+            <div class="w-10 h-0.5 bg-brand-steel-500 mt-4"></div>
+          </div>
+          <p class="text-sm text-brand-slate-600 leading-relaxed">
+            For over four decades, MF Chemicals has been a family-run cornerstone of Penang's scientific supply chain. What started as a modest glassware distributor in Bukit Minyak is now a trusted B2B partner to universities, testing labs, and manufacturing plants across Malaysia.
+          </p>
+          <p class="text-sm text-brand-slate-600 leading-relaxed">
+            No corporate layers. When you call us, you speak to someone who can make decisions — because we're still family-owned, still hands-on, and still care about every order that ships from our Penang warehouse.
+          </p>
+          <a 
+            href={`${base}/about`} 
+            class="inline-flex items-center gap-1.5 text-sm font-bold text-brand-steel-600 hover:text-brand-steel-700 transition-colors"
+          >
+            Learn more about MF Chemicals
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Final CTA Callout -->
   <section class="py-20 bg-brand-slate-950 text-white relative overflow-hidden">
     <div class="max-w-4xl mx-auto px-4 text-center space-y-6 relative z-10">
@@ -213,9 +259,9 @@ const homepageJsonLd = [
         Our sales representatives are ready to assist. Contact our Bukit Minyak office directly or submit an RFQ form with item specifications.
       </p>
       <div class="pt-4 flex flex-col sm:flex-row justify-center gap-4">
-        <button id="open-rfq-cta" class="inline-flex items-center justify-center px-6 py-3 text-xs font-bold text-white bg-brand-steel-500 hover:bg-brand-steel-600 rounded-md transition-colors shadow-sm">
+        <a href={`${base}/quote`} class="inline-flex items-center justify-center px-6 py-3 text-xs font-bold text-white bg-brand-steel-500 hover:bg-brand-steel-600 rounded-md transition-colors shadow-sm">
           Submit RFQ Form
-        </button>
+        </a>
         <a href="tel:+6045883440" class="inline-flex items-center justify-center px-6 py-3 text-xs font-bold text-brand-slate-400 border border-brand-slate-700 hover:border-brand-slate-500 hover:text-brand-slate-300 rounded-md transition-colors">
           Call: +604-5883440
         </a>
@@ -225,27 +271,4 @@ const homepageJsonLd = [
 
 </Layout>
 
-<script>
-  // Add listeners to hero/cta quote buttons to launch dialog
-  const setupHeroTriggers = () => {
-    const dialogElement = document.getElementById('rfq-dialog') as HTMLDialogElement;
-    const heroBtn = document.getElementById('open-rfq-hero');
-    const ctaBtn = document.getElementById('open-rfq-cta');
 
-    if (dialogElement) {
-      if (heroBtn) {
-        heroBtn.addEventListener('click', () => {
-          dialogElement.showModal();
-        });
-      }
-      if (ctaBtn) {
-        ctaBtn.addEventListener('click', () => {
-          dialogElement.showModal();
-        });
-      }
-    }
-  };
-
-  setupHeroTriggers();
-  document.addEventListener('astro:after-swap', setupHeroTriggers);
-</script>

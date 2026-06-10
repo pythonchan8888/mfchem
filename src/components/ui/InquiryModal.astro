@@ -117,29 +117,9 @@ const defaultKey = "YOUR_WEB3FORMS_ACCESS_TOKEN";
   const errorMessage = document.getElementById('rfq-error');
   const errorText = document.getElementById('rfq-error-text');
 
-  // Trigger elements across the site
+  // Trigger elements across the site (currently unused — all CTAs route to /quote page)
   const setupTriggers = () => {
-    const triggers = [
-      document.getElementById('open-rfq-header'),
-      document.getElementById('open-rfq-mobile'),
-      document.getElementById('open-rfq-sidebar')
-    ];
-
-    triggers.forEach(trigger => {
-      if (trigger) {
-        trigger.addEventListener('click', (e) => {
-          e.preventDefault();
-          // Reset form before opening
-          form.classList.remove('hidden');
-          successMessage?.classList.add('hidden');
-          errorMessage?.classList.add('hidden');
-          if (submitBtn) submitBtn.disabled = false;
-          form.reset();
-          
-          dialog?.showModal();
-        });
-      }
-    });
+    // Modal is retained for future use. Current CTAs link to /quote.
   };
 
   // Close operations

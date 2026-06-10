@@ -184,9 +184,12 @@ const organizationSchema = {
               </div>
             </div>
           </div>
-          <button id="open-rfq-header" class="inline-flex items-center justify-center px-4 py-2 text-xs font-semibold text-white bg-brand-steel-600 rounded-md hover:bg-brand-steel-700 transition-all duration-200 shadow-sm">
+          <a href={`${base}/about`} class="text-sm font-medium text-brand-slate-600 hover:text-brand-steel-600 transition-colors duration-200" aria-current={Astro.url.pathname === '/about' ? 'page' : undefined}>
+            About
+          </a>
+          <a href={`${base}/quote`} class="inline-flex items-center justify-center px-4 py-2 text-xs font-semibold text-white bg-brand-steel-600 rounded-md hover:bg-brand-steel-700 transition-all duration-200 shadow-sm">
             Request Quote
-          </button>
+          </a>
         </nav>
 
         <!-- Mobile Menu Toggle Button -->
@@ -212,10 +215,11 @@ const organizationSchema = {
             <a href={`${base}/catalog/liquid`} class="px-3 py-2.5 text-xs font-medium text-brand-slate-600 hover:bg-brand-slate-50 rounded-md">8. Liquid Handling</a>
             <a href={`${base}/catalog/equipment`} class="px-3 py-2.5 text-xs font-medium text-brand-slate-600 hover:bg-brand-slate-50 rounded-md">9. Laboratory Equipment</a>
           </div>
-          <div class="pt-2">
-            <button id="open-rfq-mobile" class="w-full text-center px-4 py-3 text-sm font-semibold text-white bg-brand-steel-600 rounded-md hover:bg-brand-steel-700 transition-all duration-200 shadow-sm">
+          <div class="border-t border-brand-slate-100 pt-3 space-y-2">
+            <a href={`${base}/about`} class="block px-3 py-2.5 text-sm font-medium text-brand-slate-700 hover:bg-brand-slate-50 rounded-md">About Us</a>
+            <a href={`${base}/quote`} class="block text-center px-4 py-3 text-sm font-semibold text-white bg-brand-steel-600 rounded-md hover:bg-brand-steel-700 transition-all duration-200 shadow-sm">
               Request Quote
-            </button>
+            </a>
           </div>
         </div>
       </div>
@@ -258,20 +262,29 @@ const organizationSchema = {
           </div>
 
           <!-- Quick Navigation -->
-          <nav class="flex flex-col space-y-4" aria-label="Footer category links">
-            <h3 class="text-white font-semibold text-sm tracking-widest uppercase text-left">Category Links</h3>
-            <div class="grid grid-cols-2 gap-x-4 gap-y-2 text-xs">
-              <a href={`${base}/catalog/glassware`} class="hover:text-brand-amber-300 transition-colors">Glassware</a>
-              <a href={`${base}/catalog/porcelainware`} class="hover:text-brand-amber-300 transition-colors">Porcelainware</a>
-              <a href={`${base}/catalog/silicaware`} class="hover:text-brand-amber-300 transition-colors">Silicaware</a>
-              <a href={`${base}/catalog/plasticware`} class="hover:text-brand-amber-300 transition-colors">Plasticware</a>
-              <a href={`${base}/catalog/sundries`} class="hover:text-brand-amber-300 transition-colors">Laboratory Sundries</a>
-              <a href={`${base}/catalog/safety`} class="hover:text-brand-amber-300 transition-colors">Laboratory Safety</a>
-              <a href={`${base}/catalog/paper`} class="hover:text-brand-amber-300 transition-colors">Paper Products</a>
-              <a href={`${base}/catalog/liquid`} class="hover:text-brand-amber-300 transition-colors">Liquid Handling</a>
-              <a href={`${base}/catalog/equipment`} class="hover:text-brand-amber-300 transition-colors">Laboratory Equipment</a>
+          <div class="flex flex-col space-y-4">
+            <nav aria-label="Footer category links">
+              <h3 class="text-white font-semibold text-sm tracking-widest uppercase text-left mb-3">Category Links</h3>
+              <div class="grid grid-cols-2 gap-x-4 gap-y-2 text-xs">
+                <a href={`${base}/catalog/glassware`} class="hover:text-brand-amber-300 transition-colors">Glassware</a>
+                <a href={`${base}/catalog/porcelainware`} class="hover:text-brand-amber-300 transition-colors">Porcelainware</a>
+                <a href={`${base}/catalog/silicaware`} class="hover:text-brand-amber-300 transition-colors">Silicaware</a>
+                <a href={`${base}/catalog/plasticware`} class="hover:text-brand-amber-300 transition-colors">Plasticware</a>
+                <a href={`${base}/catalog/sundries`} class="hover:text-brand-amber-300 transition-colors">Laboratory Sundries</a>
+                <a href={`${base}/catalog/safety`} class="hover:text-brand-amber-300 transition-colors">Laboratory Safety</a>
+                <a href={`${base}/catalog/paper`} class="hover:text-brand-amber-300 transition-colors">Paper Products</a>
+                <a href={`${base}/catalog/liquid`} class="hover:text-brand-amber-300 transition-colors">Liquid Handling</a>
+                <a href={`${base}/catalog/equipment`} class="hover:text-brand-amber-300 transition-colors">Laboratory Equipment</a>
+              </div>
+            </nav>
+            <div>
+              <h3 class="text-white font-semibold text-sm tracking-widest uppercase mb-3">Company</h3>
+              <div class="flex flex-col gap-2 text-xs">
+                <a href={`${base}/about`} class="hover:text-brand-amber-300 transition-colors">About Us</a>
+                <a href={`${base}/quote`} class="hover:text-brand-amber-300 transition-colors">Request Quote</a>
+              </div>
             </div>
-          </nav>
+          </div>
 
           <!-- Contact & Location Column -->
           <div class="flex flex-col space-y-4">
@@ -314,7 +327,7 @@ const organizationSchema = {
     <!-- Page-specific JSON-LD (passed from individual pages) -->
     {jsonLd && <JsonLd data={jsonLd} />}
 
-    <!-- Vanilla Script for Menu Toggle and Dialog triggers -->
+    <!-- Vanilla Script for Menu Toggle -->
     <script>
       // Mobile menu functionality
       const toggleBtn = document.getElementById('mobile-menu-toggle');

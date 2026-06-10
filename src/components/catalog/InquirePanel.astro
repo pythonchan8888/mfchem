@@ -1,4 +1,6 @@
 ---
+import { base } from '../../utils/base';
+
 interface Props {
   categoryTitle: string;
 }
@@ -34,13 +36,13 @@ const mailtoUrl = `mailto:info@mfchemicals.net?subject=${encodeURIComponent(`Inq
 
   <!-- Primary Inquiry Actions -->
   <div class="flex flex-col gap-3 pt-2">
-    <!-- RFQ Form Trigger -->
-    <button 
-      id="open-rfq-sidebar" 
+    <!-- RFQ Form Link -->
+    <a 
+      href={`${base}/quote`}
       class="w-full inline-flex items-center justify-center px-5 py-3 text-xs font-bold text-white bg-brand-steel-600 rounded-md hover:bg-brand-steel-700 active:bg-brand-steel-800 transition-colors shadow-sm"
     >
       Request B2B Quote
-    </button>
+    </a>
 
     <!-- WhatsApp Business Action -->
     <a 
@@ -94,29 +96,3 @@ const mailtoUrl = `mailto:info@mfchemicals.net?subject=${encodeURIComponent(`Inq
   </div>
 </div>
 
-<script>
-  // Dynamic dialog trigger for the sidebar button
-  const setupSidebarTrigger = () => {
-    const sidebarRfqBtn = document.getElementById('open-rfq-sidebar');
-    const dialogElement = document.getElementById('rfq-dialog') as HTMLDialogElement;
-    const categorySelect = document.getElementById('rfq-category') as HTMLSelectElement;
-
-    if (sidebarRfqBtn && dialogElement) {
-      sidebarRfqBtn.addEventListener('click', () => {
-        // Pre-select the appropriate category inside the modal select field
-        if (categorySelect) {
-          const currentCategory = document.title.split(' | ')[0]; // E.g. "Glassware"
-          for (let option of categorySelect.options) {
-            if (option.text.includes(currentCategory)) {
-              categorySelect.value = option.value;
-              break;
-            }
-          }
-        }
-      });
-    }
-  };
-
-  setupSidebarTrigger();
-  document.addEventListener('astro:after-swap', setupSidebarTrigger);
-</script>

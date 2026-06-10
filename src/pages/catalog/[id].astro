@@ -161,14 +161,18 @@ const pageDescription = `MF Chemicals Penang (Est. 1985) - View our high-quality
               Detailed Product Ranges
             </h2>
             
-            <div class="space-y-6">
+            <div class="space-y-4">
               {subcategories.map((sub, idx) => (
-                <div class="flex items-start gap-4 p-4 rounded-lg hover:bg-brand-slate-50 transition-colors border border-transparent hover:border-brand-slate-100/60">
-                  <div class="w-6 h-6 rounded-full bg-brand-slate-100 border border-brand-slate-200 flex items-center justify-center text-[10px] font-bold text-brand-slate-600 shrink-0 mt-0.5">
+                <div class="flex items-start gap-4 p-4 rounded-lg hover:bg-brand-slate-50 transition-all border border-transparent hover:border-brand-slate-100/60 group">
+                  <!-- Visual Index Marker -->
+                  <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-brand-steel-50 to-brand-steel-100 border border-brand-steel-200/60 flex items-center justify-center text-xs font-bold text-brand-steel-700 shrink-0 group-hover:scale-105 transition-transform">
                     {String(idx + 1).padStart(2, '0')}
                   </div>
-                  <div class="space-y-1">
-                    <h3 class="text-sm font-bold text-brand-slate-800">{getSubName(sub)}</h3>
+                  <div class="space-y-1.5 flex-1">
+                    <div class="flex items-center gap-2">
+                      <h3 class="text-sm font-bold text-brand-slate-800">{getSubName(sub)}</h3>
+                      <span class="text-[9px] text-brand-steel-600 bg-brand-steel-50 border border-brand-steel-100 px-1.5 py-0.5 rounded font-medium opacity-0 group-hover:opacity-100 transition-opacity">View details</span>
+                    </div>
                     <p class="text-xs text-brand-slate-500 leading-relaxed">
                       {getSubDescription(sub)}
                     </p>
@@ -177,6 +181,26 @@ const pageDescription = `MF Chemicals Penang (Est. 1985) - View our high-quality
               ))}
             </div>
           </article>
+
+          <!-- Quick Reference Stats -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="bg-white border border-brand-slate-200/80 rounded-lg p-4 text-center shadow-sm hover:shadow-premium transition-all">
+              <div class="text-xl font-bold text-brand-steel-600">{subcategories.length}</div>
+              <div class="text-[10px] text-brand-slate-500 mt-1 font-medium">Product Sub-Ranges</div>
+            </div>
+            <div class="bg-white border border-brand-slate-200/80 rounded-lg p-4 text-center shadow-sm hover:shadow-premium transition-all">
+              <div class="text-xl font-bold text-brand-steel-600">{brands.length}</div>
+              <div class="text-[10px] text-brand-slate-500 mt-1 font-medium">Premium Brands</div>
+            </div>
+            <div class="bg-white border border-brand-slate-200/80 rounded-lg p-4 text-center shadow-sm hover:shadow-premium transition-all">
+              <div class="text-xl font-bold text-brand-steel-600">ISO</div>
+              <div class="text-[10px] text-brand-slate-500 mt-1 font-medium">Compliance Standard</div>
+            </div>
+            <div class="bg-white border border-brand-slate-200/80 rounded-lg p-4 text-center shadow-sm hover:shadow-premium transition-all">
+              <div class="text-xl font-bold text-brand-steel-600">SDS</div>
+              <div class="text-[10px] text-brand-slate-500 mt-1 font-medium">Sheets Available</div>
+            </div>
+          </div>
 
           <!-- Brands Representation Section -->
           <article class="bg-white border border-brand-slate-200/80 rounded-xl p-6 md:p-8 shadow-premium">
@@ -187,11 +211,14 @@ const pageDescription = `MF Chemicals Penang (Est. 1985) - View our high-quality
               We distribute authentic products from the following leading manufacturers. Material Safety Data Sheets (MSDS) and batch calibration certificates can be provided upon request.
             </p>
             
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-              {brands.map((brand) => (
-                <div class="border border-brand-slate-200/60 hover:border-brand-slate-300 rounded-lg p-4 flex flex-col items-center justify-center text-center select-none bg-brand-slate-50/50 hover:bg-brand-slate-50 transition-colors shadow-sm h-20">
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              {brands.map((brand, idx) => (
+                <div class="relative border border-brand-slate-200/60 hover:border-brand-steel-300 rounded-lg p-4 flex flex-col items-center justify-center text-center select-none bg-gradient-to-b from-brand-slate-50 to-white hover:shadow-premium transition-all group h-24">
+                  <div class="w-8 h-8 rounded-full bg-brand-steel-100/50 flex items-center justify-center mb-2 group-hover:bg-brand-steel-200/50 transition-colors">
+                    <span class="text-[10px] font-bold text-brand-steel-600">{brand.charAt(0)}</span>
+                  </div>
                   <span class="text-xs font-bold text-brand-slate-800">{brand}</span>
-                  <span class="text-[9px] uppercase tracking-widest text-brand-slate-400 font-semibold mt-1">Authorized</span>
+                  <span class="text-[8px] uppercase tracking-widest text-brand-slate-400 font-semibold mt-0.5">Authorized</span>
                 </div>
               ))}
             </div>
@@ -202,12 +229,12 @@ const pageDescription = `MF Chemicals Penang (Est. 1985) - View our high-quality
             <div class="space-y-2">
               <h3 class="text-sm md:text-base font-bold">Request Calibration & Batch Certificates</h3>
               <p class="text-[11px] md:text-xs text-brand-slate-400 max-w-lg leading-relaxed">
-                Need original Pyrex batch certificates, brand conformity files, or technical datasheets? Inform our Penang sales team.
+                Need original {brands[0] || 'brand'} batch certificates, brand conformity files, or technical datasheets? Inform our Penang sales team.
               </p>
             </div>
-            <button id="open-rfq-bottom" class="inline-flex items-center justify-center px-4 py-2.5 text-xs font-bold text-white bg-brand-steel-500 hover:bg-brand-steel-600 rounded-md transition-colors shrink-0 shadow-sm">
+            <a href={`${base}/quote`} class="inline-flex items-center justify-center px-4 py-2.5 text-xs font-bold text-white bg-brand-steel-500 hover:bg-brand-steel-600 rounded-md transition-colors shrink-0 shadow-sm">
               Request Certificate
-            </button>
+            </a>
           </div>
 
         </div>
@@ -223,19 +250,3 @@ const pageDescription = `MF Chemicals Penang (Est. 1985) - View our high-quality
   </div>
 </Layout>
 
-<script>
-  // Add listeners to secondary page quote triggers
-  const setupPageTriggers = () => {
-    const dialogElement = document.getElementById('rfq-dialog') as HTMLDialogElement;
-    const bottomBtn = document.getElementById('open-rfq-bottom');
-
-    if (dialogElement && bottomBtn) {
-      bottomBtn.addEventListener('click', () => {
-        dialogElement.showModal();
-      });
-    }
-  };
-
-  setupPageTriggers();
-  document.addEventListener('astro:after-swap', setupPageTriggers);
-</script>
