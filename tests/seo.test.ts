@@ -176,14 +176,15 @@ describe('JSON-LD Structured Data', () => {
     expect(allLd).toContain('5.3299');
   });
 
-  it('should have WebSite + SearchAction schema on the homepage', () => {
+  it('should have WebSite schema on the homepage (without SearchAction — no search exists)', () => {
     const html = readHtml('index.html');
     const ldMatches = html.match(/<script type="application\/ld\+json">([^<]+)<\/script>/g);
     expect(ldMatches).not.toBeNull();
 
     const allLd = ldMatches!.join(' ');
     expect(allLd).toContain('"WebSite"');
-    expect(allLd).toContain('"SearchAction"');
+    // SearchAction was intentionally removed — the site has no search functionality
+    expect(allLd).not.toContain('"SearchAction"');
   });
 
   it('should have BreadcrumbList schema on catalog pages', () => {

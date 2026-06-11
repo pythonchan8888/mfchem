@@ -3,9 +3,15 @@ import { base } from '../../utils/base';
 
 interface Props {
   categoryTitle: string;
+  brands: string[];
 }
 
-const { categoryTitle } = Astro.props;
+const { categoryTitle, brands } = Astro.props;
+
+// Build a readable brand snippet for the trust indicator (show first 2-3)
+const brandSnippet = brands.length <= 3
+  ? brands.join(', ')
+  : brands.slice(0, 3).join(', ') + ', etc.';
 
 // Format WhatsApp string exactly as requested by user feedback
 const baseMessage = `Hi MF Chemicals, I am interested in your ${categoryTitle} range. Please provide more details on pricing and availability.`;
@@ -77,7 +83,7 @@ const mailtoUrl = `mailto:info@mfchemicals.net?subject=${encodeURIComponent(`Inq
         <svg class="w-3.5 h-3.5 text-emerald-600 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
         </svg>
-        <span><strong>100% Genuine Supplies:</strong> Sourced directly from authorized manufacturers only.</span>
+        <span><strong>100% Genuine Supplies:</strong> Sourced directly from {brandSnippet}.</span>
       </li>
       <li class="flex items-start gap-2">
         <svg class="w-3.5 h-3.5 text-emerald-600 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
