@@ -61,12 +61,7 @@ const homepageJsonLd = [
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "MF Chemicals",
-    "url": "https://www.mfchemicals.net",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://www.mfchemicals.net/?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
+    "url": "https://www.mfchemicals.net"
   }
 ];
 ---
@@ -110,14 +105,14 @@ const homepageJsonLd = [
 
   <!-- Visual Product Collage -->
   <section class="relative bg-white border-b border-brand-slate-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-6">
       <img 
         src={`${base}/images/hero-collage.jpg`} 
         alt="MF Chemicals laboratory supplies — glassware, equipment, porcelainware, plasticware, safety gear, and consumables for research and industrial labs" 
-        class="w-full h-auto rounded-xl border border-brand-slate-200 shadow-premium object-cover"
+        class="w-full h-auto max-h-[300px] md:max-h-[400px] rounded-xl border border-brand-slate-200 shadow-premium object-cover"
         loading="eager"
         width="1200"
-        height="675"
+        height="400"
       />
     </div>
   </section>
