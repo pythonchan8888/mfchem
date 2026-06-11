@@ -182,6 +182,22 @@ const pageDescription = `MF Chemicals Penang (Est. 1985) - View our high-quality
             </div>
           </article>
 
+          <!-- Visual Showcase -->
+          <div class="bg-white border border-brand-slate-200/80 rounded-xl overflow-hidden shadow-premium">
+            <img 
+              src={`${base}/images/banners/${category.id}.png`} 
+              alt={`${title} — premium laboratory supplies from MF Chemicals Penang`}
+              class="w-full h-auto object-cover max-h-64 md:max-h-80"
+              loading="lazy"
+              width="1200"
+              height="400"
+            />
+            <div class="px-6 py-4 bg-brand-slate-50 border-t border-brand-slate-100 flex items-center justify-between">
+              <span class="text-xs text-brand-slate-500">Premium {title} — Authorized B2B Stock from {brands.slice(0, 2).join(' & ')}</span>
+              <a href={`${base}/quote`} class="text-xs font-bold text-brand-steel-600 hover:text-brand-steel-700 transition-colors">Inquire Now →</a>
+            </div>
+          </div>
+
           <!-- Quick Reference Stats -->
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <div class="bg-white border border-brand-slate-200/80 rounded-lg p-4 text-center shadow-sm hover:shadow-premium transition-all">
