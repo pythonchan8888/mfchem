@@ -19,7 +19,7 @@
       "description": "Single and multi-channel pipettes covering volumes from 0.1 µL to 10 mL, with ergonomic designs for high-throughput pipetting."
     }
   ],
-  "brands": ["Socorex", "Brand", "Gilson", "Eppendorf", "Sartorius"],
+  "brands": ["Socorex", "Gilson", "Eppendorf", "Sartorius"],
   "catalogPages": "151-170",
   "icon": "liquid"
 }
