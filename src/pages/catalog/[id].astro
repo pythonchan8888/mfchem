@@ -29,6 +29,10 @@ const getSubDescription = (sub: string | { name: string; description: string }) 
     ? `Premium ${sub} from brands like ${brands.join(', ')}. Available through MF Chemicals Penang.`
     : sub.description;
 
+// Helper: convert brand name to SVG filename slug
+const brandSlug = (name: string) =>
+  name.toLowerCase().replace(/\s+/g, '-');
+
 // Build page-specific JSON-LD: BreadcrumbList + Product/ItemList
 const catalogPageJsonLd = [
   {
@@ -229,12 +233,23 @@ const pageDescription = `MF Chemicals Penang (Est. 1985) - View our high-quality
             </p>
             
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-              {brands.map((brand, idx) => (
-                <div class="relative border border-brand-slate-200/60 hover:border-brand-steel-300 rounded-lg p-4 flex flex-col items-center justify-center text-center select-none bg-gradient-to-b from-brand-slate-50 to-white hover:shadow-premium transition-all group h-24">
-                  <div class="w-8 h-8 rounded-full bg-brand-steel-100/50 flex items-center justify-center mb-2 group-hover:bg-brand-steel-200/50 transition-colors">
-                    <span class="text-[10px] font-bold text-brand-steel-600">{brand.charAt(0)}</span>
+              {brands.map((brand) => (
+                <div class="relative border border-brand-slate-200/60 hover:border-brand-steel-300 rounded-lg p-4 flex flex-col items-center justify-center text-center select-none bg-gradient-to-b from-brand-slate-50 to-white hover:shadow-premium transition-all group h-28">
+                  {/* Brand SVG Logo */}
+                  <div class="w-full h-12 flex items-center justify-center mb-2 px-2">
+                    <img 
+                      src={`${base}/images/brands/${brandSlug(brand)}.svg`}
+                      alt={`${brand} logo`}
+                      class="max-w-full max-h-full object-contain opacity-80 group-hover:opacity-100 transition-opacity"
+                      loading="lazy"
+                      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                    />
+                    {/* Text fallback (hidden by default, shown if SVG fails) */}
+                    <div class="hidden items-center justify-center w-full h-full">
+                      <span class="text-sm font-bold text-brand-slate-700">{brand}</span>
+                    </div>
                   </div>
-                  <span class="text-xs font-bold text-brand-slate-800">{brand}</span>
+                  <span class="text-[10px] font-semibold text-brand-slate-600">{brand}</span>
                   <span class="text-[8px] uppercase tracking-widest text-brand-slate-400 font-semibold mt-0.5">Authorized</span>
                 </div>
               ))}
