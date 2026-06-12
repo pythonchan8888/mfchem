@@ -1,0 +1,25 @@
+{
+  "title": "Chemicals",
+  "description": "High-purity laboratory chemicals, analytical reagents, solvents, and specialty compounds for research, quality control, and industrial applications.",
+  "subcategories": [
+    {
+      "name": "Analytical Reagents & Standards",
+      "description": "ACS, HPLC, and spectroscopy-grade reagents with certificate of analysis for precise quantitative and qualitative testing."
+    },
+    {
+      "name": "Solvents & Solutions",
+      "description": "High-purity organic and inorganic solvents, buffer solutions, and volumetric standards for chromatography, titration, and sample preparation."
+    },
+    {
+      "name": "Inorganic & Organic Compounds",
+      "description": "Laboratory-grade acids, bases, salts, and organic intermediates for synthesis, extraction, and general wet chemistry workflows."
+    },
+    {
+      "name": "Specialty & Fine Chemicals",
+      "description": "Custom-synthesis precursors, biochemicals, and application-specific compounds for R&D, pharmaceutical, and materials science laboratories."
+    }
+  ],
+  "brands": ["Merck", "Sigma Aldrich", "Fisher Chemicals", "Acros"],
+  "catalogPages": "59-68",
+  "icon": "chemicals"
+}

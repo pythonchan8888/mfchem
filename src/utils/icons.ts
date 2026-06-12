@@ -4,7 +4,7 @@
  */
 import GlasswareIcon from '../components/icons/GlasswareIcon.astro';
 import PorcelainwareIcon from '../components/icons/PorcelainwareIcon.astro';
-import SilicawareIcon from '../components/icons/SilicawareIcon.astro';
+import ChemicalsIcon from '../components/icons/ChemicalsIcon.astro';
 import PlasticwareIcon from '../components/icons/PlasticwareIcon.astro';
 import SundriesIcon from '../components/icons/SundriesIcon.astro';
 import SafetyIcon from '../components/icons/SafetyIcon.astro';
@@ -15,7 +15,7 @@ import EquipmentIcon from '../components/icons/EquipmentIcon.astro';
 export const iconMap = {
   glassware: GlasswareIcon,
   porcelainware: PorcelainwareIcon,
-  silicaware: SilicawareIcon,
+  chemicals: ChemicalsIcon,
   plasticware: PlasticwareIcon,
   sundries: SundriesIcon,
   safety: SafetyIcon,

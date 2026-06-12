@@ -50,10 +50,11 @@ const brands = [
   ['mapa', 'MAPA', '', '#003399', 'bold', 6],
   ['dupont', 'DuPont', '™', '#1a365d', 'normal', 3],
 
-  // Silicaware
-  ['techne', 'TECHNE', '', '#003399', 'bold', 4],
-  ['electrothermal', 'ELECTROTHERMAL', '', '#4a5568', 'bold', 1],
-  ['bel-art', 'BEL-ART', '™', '#2c5282', 'bold', 3],
+  // Chemicals
+  ['merck', 'MERCK', '', '#0099cc', 'bold', 4],
+  ['sigma-aldrich', 'SIGMA-ALDRICH', '®', '#8B0000', 'bold', 1],
+  ['fisher-chemicals', 'FISHER CHEMICALS', '', '#1a365d', 'bold', 1],
+  ['acros', 'ACROS', '', '#e53e3e', 'bold', 4],
 
   // Sundries
   ['fisherbrand', 'FISHERBRAND', '™', '#003366', 'bold', 1],
