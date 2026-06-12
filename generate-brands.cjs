@@ -53,7 +53,7 @@ const brands = [
   // Chemicals
   ['merck', 'MERCK', '', '#0099cc', 'bold', 4],
   ['sigma-aldrich', 'SIGMA-ALDRICH', '®', '#8B0000', 'bold', 1],
-  ['fisher-chemicals', 'FISHER CHEMICALS', '', '#1a365d', 'bold', 1],
+  ['honeywell', 'HONEYWELL', '', '#e53e3e', 'bold', 2],
   ['acros', 'ACROS', '', '#e53e3e', 'bold', 4],
 
   // Sundries

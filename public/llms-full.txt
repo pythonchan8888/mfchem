@@ -40,7 +40,7 @@
 - Mortars & Pestles — grinding and homogenization tools for sample preparation
 
 ### 3. Chemicals (Catalog Pages 59-68)
-**Brands:** Merck, Sigma Aldrich, Fisher Chemicals, Acros
+**Brands:** Merck, Sigma Aldrich, Honeywell, Acros
 **Subcategories:**
 - Analytical Reagents & Standards — ACS, HPLC, and spectroscopy-grade reagents with certificate of analysis
 - Solvents & Solutions — high-purity organic and inorganic solvents, buffer solutions, and volumetric standards

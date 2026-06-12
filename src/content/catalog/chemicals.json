@@ -19,7 +19,7 @@
       "description": "Custom-synthesis precursors, biochemicals, and application-specific compounds for R&D, pharmaceutical, and materials science laboratories."
     }
   ],
-  "brands": ["Merck", "Sigma Aldrich", "Fisher Chemicals", "Acros"],
+  "brands": ["Merck", "Sigma Aldrich", "Honeywell", "Acros"],
   "catalogPages": "59-68",
   "icon": "chemicals"
 }
