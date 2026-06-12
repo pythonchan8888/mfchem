@@ -13,7 +13,7 @@ describe('Catalog Flat-File Integrity Tests', () => {
     const expectedCategories = [
       'glassware.json',
       'porcelainware.json',
-      'silicaware.json',
+      'chemicals.json',
       'plasticware.json',
       'sundries.json',
       'safety.json',

@@ -26,7 +26,7 @@ const pageFiles = [
   '404.html',
   'catalog/glassware/index.html',
   'catalog/porcelainware/index.html',
-  'catalog/silicaware/index.html',
+  'catalog/chemicals/index.html',
   'catalog/plasticware/index.html',
   'catalog/sundries/index.html',
   'catalog/safety/index.html',

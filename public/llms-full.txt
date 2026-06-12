@@ -39,13 +39,13 @@
 - Vials, Cells & Cuvettes — porcelain and ceramic sample containers for spectroscopy
 - Mortars & Pestles — grinding and homogenization tools for sample preparation
 
-### 3. Silicaware (Catalog Pages 59-68)
-**Brands:** Specialty silicone manufacturers
+### 3. Chemicals (Catalog Pages 59-68)
+**Brands:** Merck, Sigma Aldrich, Fisher Chemicals, Acros
 **Subcategories:**
-- Silicone Tubing & Connectors — flexible, autoclavable tubing for fluid transfer in laboratories
-- Silicone Stoppers & Seals — chemical-resistant closures for flasks and vessels
-- Heating Mantles & Accessories — silicone-based heating equipment for uniform thermal distribution
-- Desiccators & Drying Equipment — moisture-controlled storage and drying apparatus
+- Analytical Reagents & Standards — ACS, HPLC, and spectroscopy-grade reagents with certificate of analysis
+- Solvents & Solutions — high-purity organic and inorganic solvents, buffer solutions, and volumetric standards
+- Inorganic & Organic Compounds — laboratory-grade acids, bases, salts, and organic intermediates
+- Specialty & Fine Chemicals — custom-synthesis precursors, biochemicals, and application-specific compounds
 
 ### 4. Plasticware (Catalog Pages 69-85)
 **Brands:** Azlon, Kartell, Nalgene, Vitlab
